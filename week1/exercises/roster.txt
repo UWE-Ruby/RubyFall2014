@@ -1,12 +1,12 @@
 #, name, email, github, twitter, hip chat
 0, Renée, renee@nird.us, reneedv, @nirdllc, Renee
-1,
+1, Katie, katrops@gmail.com, katrops, @kjtrops, Katie
 2,
-3,
+3, Alex, lumberjackparade@hotmail.com, Pensive1881
 4,
-5,
+5, Edwin, edwin.fu@gmail.com, edwinfu, @edwinfu,
 6,
-7,
+7 Alicia, aliciagoodwin@gmail.com, sojama
 8,
 9,
 10,
