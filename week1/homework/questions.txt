@@ -4,6 +4,11 @@ p.86-90 Strings (Strings section in Chapter 6 Standard Types)
 ## OK, will read this and answer the questions
 
 1. What is an object?
+An object is software artifact that encapsulates the behavior and state of the entity being modeled in software.  Using software object modeling techniques provides a number of benefits including:
+  - Modularity
+  - Information Hiding
+  - Code Reuse
+  - Replaceable Parts
 
 2. What is a variable?
 
