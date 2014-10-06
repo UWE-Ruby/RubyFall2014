@@ -16,18 +16,21 @@ describe String do
 			@my_string = "Renée is a fun teacher. Ruby is a really cool programming language"
 		end
 
-		it "should be able to count the charaters"
+		it "should be able to count the charaters" do 
+			@my_string.should have(66).characters 
+		end 
 
 		it "should be able to split on the . charater" do
-			pending
-			result = #do something with @my_string here
+			result = @my_string.split(".") 
 			result.should have(2).items
 		end
 
 		it "should be able to give the encoding of the string" do
-			pending 'helpful hint: should eq (Encoding.find("UTF-8"))'
-			encodeing #do something with @my_string here
-			#use helpful hint here
+			#helpful hint: should eq (Encoding.find("UTF-8"))'
+			#@my_string = @my_string.join(".")
+			@my_string.force_encoding("UTF-8") 
+			result = @my_string.encoding #do something with @my_string here
+			result.should eq(Encoding.find("UTF-8"))
 		end
 	end
 end
