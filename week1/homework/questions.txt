@@ -3,13 +3,29 @@ Chapter 3 Classes, Objects, and Variables
 p.86-90 Strings (Strings section in Chapter 6 Standard Types)
 
 1. What is an object?
+An object represents data that can be manipulated.
 
 2. What is a variable?
+A reference to an object. They are used to keep track of objects.
 
 3. What is the difference between an object and a class?
+A class is each named thing that the code needs to find answers or do
+work.
+(ie a User class that represents all the users about whom I collect
+information. A class does not change.
+Information that the class represents can change ). An object
+represents data within the class that can be changed.
+The user object is used when I collect data about my users.
 
 4. What is a String?
+objects of class String. They can hold printable characters or binary data.
 
-5. What are three messages that I can send to a string object? Hint: think methods
+5. What are three messages that I can send to a string object? Hint:
+   think methods
+   Chomp, Split, Squeeze
 
 6. What are two ways of defining a String literal? Bonus: What is the difference between them?
+double quotes, single quotes. Double quoted strings support more
+escape sequences. I think this is because everything between single
+quotes in interpreted literally - so \n would print \n if it's between
+single quotes.
