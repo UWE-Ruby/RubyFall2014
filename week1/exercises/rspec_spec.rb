@@ -81,6 +81,7 @@ describe "The Rspec ruby gem" do
       (1+2-5*6/2).should eq -12
     end
     it "should count the characters in your name" do
+<<<<<<< HEAD
       "Rick".should have(4).characters
     end
 
@@ -91,5 +92,18 @@ describe "The Rspec ruby gem" do
     it "should check basic spelling" do
        "field".should include("ie")
     end
+=======
+      "Tom".should have(3).characters
+    end
+
+    it "should check basic math" do
+      (1+1).should eq 2
+    end
+
+    it "should check basic spelling" do
+      "field".should include("ie")
+    end
+
+>>>>>>> d15be6bea7f47e9899c2d287761019ffd7532ba0
   end
 end
