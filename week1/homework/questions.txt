@@ -3,13 +3,21 @@ Chapter 3 Classes, Objects, and Variables
 p.86-90 Strings (Strings section in Chapter 6 Standard Types)
 
 1. What is an object?
+An object is structure of memory with associated methods that act on the members of the structure.
 
 2. What is a variable?
+A variable is a symbolic reference to an object
 
 3. What is the difference between an object and a class?
+A class is a definition of an object, an object is a specific instance of a class
 
 4. What is a String?
+A string is a sequence of characters
 
 5. What are three messages that I can send to a string object? Hint: think methods
+squeeze, split, chomp
 
 6. What are two ways of defining a String literal? Bonus: What is the difference between them?
+strings are delimited by special characters at the beginning and end of the string.  Ruby has several forms of delimeters: single quotes, double quotes, %{} where { and } may be any pair of braces ({,[,etc).  There are also here documents which begin <<ANY_END_DELIMETER string ANY_END_DELIMETER.  the difference between single and double quote strings is that single quote strings only allow \\ and \' escapes where double quotes allows a much greater variety of escape sequences including \n, and #{ code }.
+
+'])
