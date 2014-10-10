@@ -1,7 +1,9 @@
+# encoding: utf-8
+
 require 'rspec/collection_matchers'
 require_relative '../../spec_helper'
 
-# encoding: utf-8
+
 
 # Please make these examples all pass
 # You will need to change the 3 pending tests
@@ -18,6 +20,7 @@ describe String do
     
     it "should be able to count the characters" do
       "Renee is a fun teacher. Ruby is a really cool programming language".should have(66).characters
+      @my_string.size.should eq 66
     end
 
     it "should be able to split on the . character" do
@@ -28,12 +31,12 @@ describe String do
     end
 
     it "should be able to give the encoding of the string" do
-      #pending 'helpful hint: should eq (Encoding.find("UTF-8"))'
+     
       # I have ruby 1.9 so the encoding on my machine is US-ASCII
       encoding = @my_string.encoding
       #do something with @my_string here. 
       
-      encoding.should eq Encoding.find("US-ASCII")
+      encoding.should eq Encoding.find("UTF-8")
     end
   end
 end
