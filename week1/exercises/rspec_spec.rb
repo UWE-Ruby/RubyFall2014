@@ -81,15 +81,16 @@ describe "The Rspec ruby gem" do
       (1+2-5*6/2).should eq -12
     end
     it "should count the characters in your name" do
-      pending "make a test to count the characters in your name"
-      "Name".should have(5).characters
+      "Tom".should have(3).characters
     end
 
     it "should check basic math" do
-      pending "make a test to check some basic math"
+      (1+1).should eq 2
     end
 
-    it "should check basic spelling"
+    it "should check basic spelling" do
+      "field".should include("ie")
+    end
 
   end
 end
