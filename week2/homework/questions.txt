@@ -4,10 +4,55 @@ Sharing Functionality: Inheritance, Modules, and Mixins
 
 1. What is the difference between a Hash and an Array?
 
+An Array is a list of object references. They are indexed by
+integers. A Hash is also a list of object references but there are 2
+objects and they are in pairs (keys and their values). A hash is
+indexed with any type of object (symbols, strings, regular expressions)
+
 2. When would you use an Array over a Hash and vice versa?
+
+An Array is used when you have a list of items and need to iterate
+over the list and return the items in it.  I'd also use an Array when
+I know I need to return the first n items.
+
+A Hash can create a more complex data structure. You can create a hash
+of hashes or arrays which can hold more associated data than an Array
+since an array can only be indexed by an integer. If I have lots of
+different references to store (a book, it's author, her birthday)I'd
+use a Hash.
+
 
 3. What is a module? Enumerable is a built in Ruby module, what is it?
 
+Modules are a way of grouping together methods, classes and
+constants. They provide a namespace and prevent name(p. 73)
+clashes. They support the mixin facility.
+
+(note to me: A module can't have instances because it's not a class.
+You can include a module within a class definition. Then all the
+module's instance methods are available as methods in the class as
+well. A mixed-in module behaves like a superclass.)
+
+Enumerable implements methods in terms of the host class's each
+method. Any class that includes the Enumerable object and uses the
+method each can use Enumerable's methods. Some of Enumerable's methods
+are map, sort_by, select, next, with_index. These are all methods that
+allow me create data structures, change them and keep track of
+them. I need to use each to use them.
+
+
 4. Can you inherit more than one thing in Ruby? How could you get around this problem?
 
+No. You can use a module so your names are protected.
+
+
 5. What is the difference between a Module and a Class?
+A module can't have instances. It has to be included in a file so it's
+methods can be used by the Class. Modules group classes together. A
+Classes are the things I deal with (ie. in my software I have a User class
+that holds all of my users, an Appointment class that holds all the
+appointments). Using modules I can bring that data together to change
+it or track it or whatever I am doing with it.
+
+I know I've used modules and I think I basically understand what they
+are. Classes seem more clear to me though.
