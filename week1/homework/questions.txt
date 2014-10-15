@@ -4,12 +4,27 @@ p.86-90 Strings (Strings section in Chapter 6 Standard Types)
 
 1. What is an object?
 
+A: Objects are encapsulations of data (attributes etc..) and behavior (methods) that serve to represent objects or things just as they would in the real world. An example the book uses is an object representing a song. 
+
 2. What is a variable?
+
+A: Variables are names/references to objects. Variables can be thought as labels for the objects they contain. 
 
 3. What is the difference between an object and a class?
 
+A: Classes are templates that objects can created from. Any object can be said to be instance of class that was used to instantiate it. 
+
 4. What is a String?
+
+A: Strings in ruby are sequences of 8-bit bytes, usually used to hold bytes that represent characters. Strings are useful for representing data in human readable 
 
 5. What are three messages that I can send to a string object? Hint: think methods
 
+A:
+chomp
+encode
+replace
+
 6. What are two ways of defining a String literal? Bonus: What is the difference between them?
+
+A: You may define a string literal with single quotes '' and double quotes "". Double quotes need to be used if string interpolation is required. 
