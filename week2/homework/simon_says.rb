@@ -7,8 +7,8 @@ module SimonSays
 		text.upcase
 	end
 
-	def repeat(text, num_of_repeats = 2)
-		text_array = num_of_repeats.times.collect {text}
+	def repeat(text, number = 2)
+		text_array = number.times.collect {text}
 		text_array.join(' ')
 	end
 
@@ -17,6 +17,6 @@ module SimonSays
 	end
 
 	def first_word(text)
-		text.split(' ')[0]
+		text.split(' ').first
 	end
 end
