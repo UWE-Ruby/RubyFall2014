@@ -23,6 +23,15 @@ appear as methods in a class when the module is included, module methods
 do not.  Conversely, module methods may be called without creating an
 encapsulating object, while instance methods may not."
 
+A module is similar to a class but it can have no subclasses or instances.
+
+A module is defined by:
+module .....
+	.
+	.
+	.
+end
+
 
 Enumerable is a built in Ruby module, what is it?
 From www.ruby-doc.org 
