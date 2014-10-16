@@ -1,6 +1,7 @@
 # encoding: utf-8
 require 'rspec/collection_matchers'
 require_relative '../../spec_helper'
+
 describe "The Rspec ruby gem" do
 
   context "Domain Specific Language" do
@@ -44,7 +45,7 @@ describe "The Rspec ruby gem" do
 
       # When this example fails,
       # it will show "expected" as 2, and "actual" as 1
-      1.should eq 2
+      2.should eq 2
 
     end
 
@@ -54,10 +55,10 @@ describe "The Rspec ruby gem" do
 
       # The following expression is false.
       # However, this example PASSES because no expectation was created.
-      true == false
+      #true == false
 
       # The following line of code is correct, and would cause the example to fail:
-      # true.should == false
+      true.should == true
 
       # Lesson: It's easy to write bad tests.
 
@@ -81,16 +82,32 @@ describe "The Rspec ruby gem" do
       (1+2-5*6/2).should eq -12
     end
     it "should count the characters in your name" do
+<<<<<<< HEAD
+      "make a test to count the characters in your name"
+=======
+>>>>>>> d15be6bea7f47e9899c2d287761019ffd7532ba0
       "Tom".should have(3).characters
     end
 
     it "should check basic math" do
+<<<<<<< HEAD
+      "make a test to check some basic math"
+      (1+4+5).should eq 10
+    end
+
+    it "should check basic spelling" do 
+      "make sure i is before e" 
+      "field".should include("ie") 
+    end
+
+=======
       (1+1).should eq 2
     end
 
     it "should check basic spelling" do
       "field".should include("ie")
     end
+>>>>>>> d15be6bea7f47e9899c2d287761019ffd7532ba0
 
   end
 end

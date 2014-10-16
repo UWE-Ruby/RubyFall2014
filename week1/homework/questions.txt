@@ -3,13 +3,21 @@ Chapter 3 Classes, Objects, and Variables
 p.86-90 Strings (Strings section in Chapter 6 Standard Types)
 
 1. What is an object?
+  An object is a thing with properties and methods that can be used to do things.  
 
 2. What is a variable?
+  A variable is a space in memory where you can store a value. There are different types of variables based on the kind of data stored (integer, string, bignum) and the places in your app where you want to use the app (local, class, instance, etc.)
 
 3. What is the difference between an object and a class?
+  An object is an instance of a class, a class is a blueprint for objects. 
 
 4. What is a String?
+  A string is a collection of one or more text/numbers that has a set of properties. 
 
 5. What are three messages that I can send to a string object? Hint: think methods
+  Methods for strings includ Upcase, Downcase, Reverse, length, chop, clear, an_array (to_a),  empty?, strip, etc 
 
 6. What are two ways of defining a String literal? Bonus: What is the difference between them?
+  (a) You can define a string by using double quotation marks: s = "this is a string"
+  (b) YOu can also define a string with single quotation marks, but you cannot escape special characters or use interpolation with #{..}: s = 'this is another string' 
+
