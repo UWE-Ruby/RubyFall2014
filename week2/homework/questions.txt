@@ -4,10 +4,64 @@ Sharing Functionality: Inheritance, Modules, and Mixins
 
 1. What is the difference between a Hash and an Array?
 
+An array is an object that holds a collection of object references, 
+with a non-negative integer position for each element serving as that
+object's index. For example:
+
+a = [ 1, 3, 5 ]
+a[0] # => 1
+a[1] # => 3
+a[2] # => 5
+
+A hash is also an object that holds a collection of object references, but
+each element is indexed with a provided key. Keys can be any object type:
+strings, symbols, etc. For example:
+
+petsounds = { dog: 'woof', cat: 'meow', bird: 'chirp' }
+
+petsounds['cat'] # => 'meow'
+
 2. When would you use an Array over a Hash and vice versa?
+
+Arrays can be readily used as stacks and queues, and have built-in methods
+to support stack/queue types of operations like adding or removing elements
+from the stack (e.g., push, pop). 
+
+Hashes are mainly useful because of their ability to be indexed by anything 
+besides integers. Also, hash enumerations occur in the order in which
+elements were added to the hash, which could also be useful for tracking
+duration of collection membership.
 
 3. What is a module? Enumerable is a built in Ruby module, what is it?
 
+A module is a way of grouping together methods, classes, and constants,
+with two major benefits:
+
+ a. namespaces (prevent method and/or constant name clashes)
+ b. supports use of mixins, which results when a module is included in
+    a class definition such that all the module's instance methods are
+    immediately available to the containing class
+
+Enumerable is a module that allows for the use of collection class methods
+(e.g., map, include?, find_all?) to be available to the class containing
+the Enumerable module. Effectively, you can create a class that uses
+enumerative methods found in Arrays and Hashes by simply creating an iterator
+called "each" (which leverages the each method from the host class). 
+
 4. Can you inherit more than one thing in Ruby? How could you get around this problem?
 
+Yes. The use of modules and mixins can help prevent inheritance issues due to 
+method name clashes, where the same class method variable name may exist in multiple
+classes within a program. Also, a mixin is vulnerable to instance variable
+name clashes with other mixins or their host class. If unique instance 
+variable names are used in a mixin relative to those elsewhere, clashes can
+be avoided (or perhaps use a hash in the module indexed by current objectID).
+
 5. What is the difference between a Module and a Class?
+
+A module cannot have instances (i.e., they do not have their own state), 
+but can be included in a class such that its instance methods become 
+instantly available to the class. Mixed-in modules act essentially as 
+superclasses. 
+
+
