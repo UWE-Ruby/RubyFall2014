@@ -1,21 +1,16 @@
 module SimonSays
   def echo(word)
-   word
+    word
   end
 
   def shout(word)
     word.upcase
   end
 
-  def repeat(word)
-    space = "#{word} " *2
+  def repeat(word, number=2)
+    space = "#{word} " * number
     space.chop
   end
-
-   def repeat_times(word, number)
-     space = "#{word} " * number
-     space.chop
-   end
 
   def start_of_word(word, number)
     word.slice(0,number)
