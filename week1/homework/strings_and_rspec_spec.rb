@@ -1,7 +1,8 @@
+# encoding: utf-8
+
 require 'rspec/collection_matchers'
 require_relative '../../spec_helper'
 
-# encoding: utf-8
 
 # Please make these examples all pass
 # You will need to change the 3 pending tests
@@ -16,18 +17,20 @@ describe String do
 			@my_string = "Renée is a fun teacher. Ruby is a really cool programming language"
 		end
 
-		it "should be able to count the charaters"
+		it "should be able to count the characters" do
+			expect(@my_string.size).to eq 66
+			@my_string.size.should eq 66
+		end
 
-		it "should be able to split on the . charater" do
-			pending
-			result = #do something with @my_string here
+		it "should be able to split on the . character" do
+			result = @my_string.split('.')#do something with @my_string here
 			result.should have(2).items
 		end
 
 		it "should be able to give the encoding of the string" do
-			pending 'helpful hint: should eq (Encoding.find("UTF-8"))'
-			encodeing #do something with @my_string here
-			#use helpful hint here
+			@my_string.encoding.should eq (Encoding.find("UTF-8"))
+			e = @my_string.encoding
+			e.should eq (Encoding.find("UTF-8"))
 		end
 	end
 end
