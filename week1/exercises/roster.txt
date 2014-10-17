@@ -1,16 +1,17 @@
 #, name, email, github, twitter, hip chat
 0, Renée, renee@nird.us, reneedv, @nirdllc, Renee
-1,
+1, Katie, katrops@gmail.com, katrops, @kjtrops, Katie
 2,
-3,
-4,
-5,
-6,
-7,
-8,
-9,
-10,
-11,
-12,
+3, Alex, lumberjackparade@hotmail.com, Pensive1881
+4, Rick, rcrelia@gmail.com, rcrelia, @rcrelia, Rick
+5, Edwin, edwin.fu@gmail.com, edwinfu, @edwinfu,
+6, Gregg, gpg@gregory-gadow.net, GGadow, n/a, Gregg 
+7  Alicia, aliciagoodwin@gmail.com, sojama
+8, Scott Kostojohn, skostojohn@hotmail.com,skostojohn,@crm_scott, Scott
+9, Kenny, lukenny@gmail.com, lukenny, , Kenny
+10, Nathan, nathanrohm@gmail.com, natron19, natron19, natron19
+11, Emily, emxruf@gmail.com, no twitter, metroretro, Emily
+12, joseph , jjs0sbw@gmail.com, jjs0sbw, @jjs0sbw, huh?
 13,
-14,
+14, Tom, tunderhill@gmail.com, tomun, @tomun,
+15, Surendra, mohan.surendra@gmail.com, syearva,  ,
