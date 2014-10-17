@@ -4,7 +4,7 @@ module SimonSays
 	end
 
 	def shout(str)
-		str.upcase
+		str.upcased
 	end
 
 	def repeat(str, n = 2)
