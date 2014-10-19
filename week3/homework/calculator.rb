@@ -14,7 +14,36 @@ class Calculator
         s
     end
     
-    def multiply numOrArray, num = 0
+    def multiply *args
+        if args[0].class == Array
+            multiplyArray args[0]
+        else
+            multiplyArray args
+        end
+    end
+
+    def multiplyArray array
+        m = 1
+        array.each do |value|
+            m *= value
+        end
+        m
+    end
+
+    def multiply_Alternative *args
+        if args[0].class == Array
+            array = args[0]
+        else
+            array = args
+        end
+        m = 1
+        array.each do |value|
+            m *= value
+        end
+        m
+    end
+
+    def multiply_Alternative2 numOrArray, num = 0
         m = 1
         if numOrArray.class == Array
             numOrArray.each do |value|
