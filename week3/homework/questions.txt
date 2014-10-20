@@ -6,10 +6,20 @@ Please Read:
 
 1. What is a symbol?
 
+    A symbol is used to name something in Ruby.  Symbols are indicated by using a colon before the symbol name, like :hello. Symbols are often used as keys in hashes.
+
 2. What is the difference between a symbol and a string?
+
+    Unlike strings, symbols cannot be changed.  This makes use of symbols more memory-efficient, as Ruby only needs to store a single instance of the symbol in memory, and each use of a given symbol points to the same place in memory.  Conversly, each time the same string (e.g. "hello world") is used, a separate space in memory is set aside for it, as each instance can change and needs to be tracked separately from the others.
 
 3. What is a block and how do I call a block?
 
+    A block is a piece of Ruby code that is defined between curly braces or a "do-end", and can be passed as a parameter to a method.  Within the method, the author enters "yield" when they want the block to be executed.  Parameters can be passed to the block, following the yield - e.g. "yield x".
+
 4. How do I pass a block to a method? What is the method signature?
 
+    A block can be passed as the last parameter to a method, either within curly braces or a do-end.  The method signature is the name of the method, and the parameters it expects.
+
 5. Where would you use regular expressions?
+
+    Regular expressions are useful for matching patterns in strings.
