@@ -1,3 +1,4 @@
+Homework Three -- Joseph Simpson -- 10-23-2014
 Please Read: 
  - Chapter 6 Standard Types
  - Review Blocks
@@ -5,11 +6,41 @@ Please Read:
  - Chapter 22 The Ruby Language: basic types (symbols), variables and constants
 
 1. What is a symbol?
+A symbol is a basic object type in Ruby.  Symbol objects represent names and strings
+when they are used by the Ruby interpreter. A symbol object provides a single 
+reference for a name or string during the program execution.
 
 2. What is the difference between a symbol and a string?
+A symbol and a string are different basic types of Ruby objects with different 
+methods and purposes.  They are simply two different object types that do different
+ things.
 
 3. What is a block and how do I call a block?
+In Ruby, a block is a syntax literal for Ruby Proc objects.  A block is a set of 
+instructions between braces, {}, or between do ... end statements. A block is a closure
+and provides powerful object scope operations.
+
+A block may be called in three basic ways:
+  - { yield }
+  - { block.call }
+  - &block
 
 4. How do I pass a block to a method? What is the method signature?
+A block is passed to a method by appending a block to a method call.  For instance:
+def three_times
+	yield
+	yield
+	yield
+end
+
+  three_times {puts "Hello"}
+  
+The method signature is:
+
+ three_times {puts "Hello"} 
+  
 
 5. Where would you use regular expressions?
+
+You would use regular expressions when you need to do string based pattern matching and
+substitution.
