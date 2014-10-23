@@ -6,10 +6,60 @@ Please Read:
 
 1. What is a symbol?
 
+A symbol is an identifier composed of a string of charcters, usually a name,
+that is constructed by preceding the name with a colon. For example:
+
+:my_favoriteSong
+:ip_address
+:'height'  # => :height
+
+A particular name or string will always generate the same symbol.
+
 2. What is the difference between a symbol and a string?
+
+A symbol is an immutable object, whereas a string is mutable by default.
+So, a symbol can be thought of as a constant memory object (it's object ID
+never changes) whereas a string will occupy multiple memory locations over
+its lifetime. This means that symbols are less "expensive" in terms
+of compute performance since they remain contantly available in memory
+and are ignored by Ruby's GC operations.
 
 3. What is a block and how do I call a block?
 
+A block consists of a set of Ruby code between braces or a do/end pair, 
+and appears only immediately after a method invocation. The start of a 
+block must be on the same source line as the end. For example:
+
+my_method do | a1, a2, ... | 
+end
+
+-or-
+
+my_method { | a1, a2, ... | 
+}
+
+Within the body of the method, the block can be called using yield,
+with parameters passed to yield becoming assigned to arguments in the block.
+Warnings are generated if a yield passes more parameters to a block than what
+was originally defined in the block.
+
 4. How do I pass a block to a method? What is the method signature?
 
+There are two ways to pass a block to a method:
+
+a. Using a literal block (and receive it with yield)
+
+b. As the last passed parameter containing a reference to a Proc object
+   prefixed with an ampersand 
+
+A method's signature is the list of keyword arguments expected to be
+processed by the method call. For example:
+
+ def my_method(a = 'foo', b = 'bar', c = 37)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 5. Where would you use regular expressions?
+
+Regular expressions are often used for filtering or searching text for
+patterns, with a pattern being one or more characters in a string. Once
+matched, the pattern might be evaluated, extracted, or changed inline.
