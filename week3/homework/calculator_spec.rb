@@ -1,6 +1,6 @@
 # another way of doing require_relative
 require "#{File.dirname(__FILE__)}/calculator"
-require_relative '../../spec_helper'
+#require_relative '../../spec_helper'
 
 describe Calculator do
 
