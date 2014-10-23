@@ -1,0 +1,21 @@
+Please Read: 
+ - Chapter 6 Standard Types
+ - Review Blocks
+ - Chapter 7 Regular Expressions
+ - Chapter 22 The Ruby Language: basic types (symbols), variables and constants
+
+1. What is a symbol?
+    A: A symbol is an object that is used to reference something else. 
+
+2. What is the difference between a symbol and a string?
+    A: A symbol is immutable, which means it should not change. This makes it a bit faster to process in the system. In >2.2 versions of Ruby, symbols also can cause memory leaks if you use them for items that change because there was no symbol garbage collection to get rid of unused symbols. 
+
+3. What is a block and how do I call a block?
+    A: A block is a chunk of code grouped together either by do end or by braces {}. You call a block by using the block name. 
+
+4. How do I pass a block to a method? What is the method signature? 
+    A: You can invoke a block using the yield statement from within a method.  You can also prefix the last arugument in a method signature with an ampersand to create a proc object from the bloc. Can then execute this object with the .call method. 
+
+
+5. Where would you use regular expressions?
+    A: Use regular expressions when you want to analyze data and do something based on the contents of the data. For example you can replace items, you can pull items out and transform them, you can trigger actions based on the contents, and you can use contents to turn things on or off based on the contents. 
