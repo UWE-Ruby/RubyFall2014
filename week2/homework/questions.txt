@@ -17,4 +17,8 @@ A module is a collection of constants and methods. Enumerable has methods used f
 A class can only inherit from one parent class, but by using Mixin Modules you can simulate multiple inheritance. 
 
 5. What is the difference between a Module and a Class?
+<<<<<<< HEAD
 Modules you can use across multiple classes. Modules are about functions and constants and classes are about objects and instances. 
+=======
+Modules you can use across multiple classes. Modules are about functions and constants and classes are about objects and instances.
+>>>>>>> 500e6f9d77bbce46d757bf3757289e7e5b1b69ae
