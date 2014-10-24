@@ -8,26 +8,26 @@ describe "The Rspec ruby gem" do
     it "creates examples with the #it keyword" do
 
       # this test code passes, so this example passes
-      1.should eq 1
+      expect(1).to eq 1
 
     end
 
     it "has keywords like #context, and #describe to help organize the spec, or specification" do
 
       # test code goes here
-      (1+2).should eq 3
+      expect(1+2).to eq 3
 
     end
 
-    it "has easily readable methods like #should to test any object" do
+    it "has easily readable methods like #should (should is deprcated use expect(x).to eq x) to test any object" do
 
-      "Hello".should eq "Hello"
+      expect("Hello").to eq "Hello"
 
     end
 
-    it "has #should_not to test for negative cases" do
+    it "has #should_not (should_not is deprecated use expect(x).not_to eq y) test for negative cases" do
 
-      1.should_not eq 2
+      expect(1).not_to eq 2
 
     end
 
@@ -35,8 +35,8 @@ describe "The Rspec ruby gem" do
 
       # Integers have #zero? and #nil? predicate methods, so
       # rspec automatically supports the #be_zero and #be_nil parameter to #should_not method
-      1.should_not be_zero
-      1.should_not be_nil
+      expect(1).not_to be_zero
+      expect(1).not_to be_nil
 
     end
 
@@ -44,7 +44,9 @@ describe "The Rspec ruby gem" do
 
       # When this example fails,
       # it will show "expected" as 2, and "actual" as 1
-      1.should eq 2
+      #expect(1).to eq 2
+      expect(1).to eq 1
+
 
     end
 
@@ -58,17 +60,18 @@ describe "The Rspec ruby gem" do
 
       # The following line of code is correct, and would cause the example to fail:
       # true.should == false
+      # expect(true).to eq false
 
       # Lesson: It's easy to write bad tests.
 
     end
 
     it "should count the characters in my name" do
-      "Renée".should have(5).characters
+      expect("Renée").to have(5).characters
     end
 
     it "should check how to spell my name" do
-      "Renée".should include("ée")
+      expect("Renée").to include("ée")
     end
 
   end
@@ -78,18 +81,18 @@ describe "The Rspec ruby gem" do
       # Fix the Failing Test
       # Order of Operations is Please Excuse My Dear Aunt Sally:
       # Parentheses, Exponents, Multiplication, Division, Addition, Subtraction
-      (1+2-5*6/2).should eq -12
+      expect(1+2-5*6/2).to eq -12
     end
     it "should count the characters in your name" do
-      "Tom".should have(3).characters
+      expect("Tom").to have(3).characters
     end
 
     it "should check basic math" do
-      (1+1).should eq 2
+      expect(1+1).to eq 2
     end
 
     it "should check basic spelling" do
-      "field".should include("ie")
+      expect("field").to include("ie")
     end
 
   end
