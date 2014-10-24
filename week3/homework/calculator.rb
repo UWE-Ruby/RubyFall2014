@@ -1,9 +1,7 @@
 class Calculator 
   attr_accessor :collection, :num
   
-  #def initialize
-   # @calculator = calculator 
-  #end
+
   def sum (collection)
     if collection == []
       return 0
