@@ -3,13 +3,30 @@ Chapter 3 Classes, Objects, and Variables
 p.86-90 Strings (Strings section in Chapter 6 Standard Types)
 
 1. What is an object?
+An object is a software artifact that encapsulates the behavior and state of the entity being modeled in the software object.  Using software object modeling techniques a number of software architectural benefits may be achieved including:
+  - Modularity
+  - Information Hiding
+  - Code Reuse
+  - Replaceable Components
 
 2. What is a variable?
+Variables are software "tags or names" that are used to manage and track software objects.  EAch variable holds a reference to an object.
 
 3. What is the difference between an object and a class?
+A software class is a general description or format for a class of things.  A software object is a specific instance of a class that contains individual values for the class attributes that represent a specific object.
 
 4. What is a String?
+In Ruby, strings are a sequence of 8-bit bytes.  Strings can hold binary and printable content.
 
 5. What are three messages that I can send to a string object? Hint: think methods
+The Ruby string class is one of the largest built-in Ruby classes, containing over 75 methods.  Three of these methods (or messages) are:
+  - try_convert("some string")
+  - "some_string".capitalize
+  - "some_string".empty?
+  - "some_string".include?
+
 
 6. What are two ways of defining a String literal? Bonus: What is the difference between them?
+A Ruby string literal may be defined using double quotes ("a string") or single quotes ('a string').  The double quotes string allow escaped characters and interpolated sections.  Single quote strings do not allow interpolation.
+
+
