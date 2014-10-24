@@ -4,10 +4,20 @@ Sharing Functionality: Inheritance, Modules, and Mixins
 
 1. What is the difference between a Hash and an Array?
 
+A: Arrays are ordered sequences of references to objects, and can be used like any number of data structures like queues dequeues, stacks etc. Hashes are datastructures in which one object is passed in to retrieve another object, much like a key/value pair. Hashes are not sequences like arrays are, and it is not really possible to maintain a particular order when using a Hash. 
+
 2. When would you use an Array over a Hash and vice versa?
+
+A: Using an array would be a natural data structure to model any sort of list, or queue, something like a playlist for a jukebox as the book references. Hashes can be used in cases in which you need to maintain a mapping, like in a software deployment scenario, you might need to access a specific set of user credentials based upon a canonical environment name. 
 
 3. What is a module? Enumerable is a built in Ruby module, what is it?
 
+A: Modules are groupings of classes, methods and constants. Modules seem to be the basic unit of what other languages might call "libraries." The Enumerable module contains many methods for different travesals and search methods for object collections. The Enumberable module can be mixed into a custom collection class to support all of the traversal and search type methods. 
+
 4. Can you inherit more than one thing in Ruby? How could you get around this problem?
 
+A: No, Ruby only supports single inheritence formally. However you can used Mixins to add methods from other classes to your target class to get around this issue. 
+
 5. What is the difference between a Module and a Class?
+
+A: Classes are traditionally used as templates to instantiate instance objects, while modules are primarily containers for reusable code. While both classes and modules can contain methods and reusable code,classes are generally used to model both data and reusable code for a real object/actor in a domain, while modules are primarily just containers/libaries used to prevent namespace conflicts. 
