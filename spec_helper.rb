@@ -4,4 +4,9 @@ RSpec.configure do |config|
   end
 
   config.color = true
+
+  config.mock_with :rspec do |mocks|
+    mocks.syntax = :should
+  end
+
 end
