@@ -3,11 +3,24 @@ Chapter 10 Basic Input and Output
 The Rake Gem: http://rake.rubyforge.org/
 
 1. How does Ruby read files?
+  Ruby reads files similar to how it can get steams from the console.   
+  If a filename was passed to ruby after the ruby script itself, then the Kernel 'gets' will lines from the 
+  file instead of the console.   A File object can also be created with a file path (File.new("filename", "r"))
+  and then #gets can be called on the file object to get lines of text, or #read to read an arbitrary number of bytes
+  from the file.
 
 2. How would you output "Hello World!" to a file called my_output.txt?
+  f = File.new("my_output.txt", "w")
+  f.puts("Hello World!")
+  f.close
 
 3. What is the Directory class and what is it used for?
+  The Dir class lets ruby inspect directories in the underlying file system.   For example Dir.entries("/") returns an
+  array containing all the filename of the files in the root directory of the system.
 
 4. What is an IO object?
+  The IO class is the basis for input and output in ruby.   It is the base class of File and the socket classes like 
+  TCPSocket and UDPSocket.   It defines the methods such as #gets, #puts, #read and #print that read or write steams of 
+  characters.
 
 5. What is rake and what is it used for? What is a rake task?
