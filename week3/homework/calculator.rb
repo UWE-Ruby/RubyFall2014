@@ -1,7 +1,15 @@
 class Calculator 
+<<<<<<< HEAD
 
   def sum input
     if input == []
+=======
+  attr_accessor :collection, :num
+  
+
+  def sum (collection)
+    if collection == []
+>>>>>>> fbdb37d62bfd89ad8328fe90edf6957bc997e776
       return 0
     else
       total = input.inject(:+)
