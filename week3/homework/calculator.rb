@@ -1,20 +1,18 @@
 class Calculator 
-  attr_accessor :collection, :num
-  
-  #def initialize
-   # @calculator = calculator 
-  #end
-  def sum (collection)
-    if collection == []
+
+  def sum input
+    if input == []
       return 0
     else
-      return collection.inject(:+)
+      total = input.inject(:+)
   end
-  def multiply (collection, *arg)
-    if collection.class == String
-      return collection.to_a.inject(:*)
+  total
+end
+  def multiply *input
+    if input.class == String
+      return input.to_a.inject(:*)
     else 
-      return collection.inject(:*)
+      return input.inject(:*)
     
    end
    
