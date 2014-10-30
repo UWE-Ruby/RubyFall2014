@@ -2,12 +2,14 @@ require_relative '../../spec_helper.rb'
 require "#{File.dirname(__FILE__)}/worker"
 
 describe Worker do
-
-	it "executes a block and returns a string" do
+  
+    it "executes a block and returns a string" do
+		
 		result = Worker.work do
 			"hello"
 		end
 		result.should == "hello"
+		
 	end
 
 	it "executes a block and returns a number" do

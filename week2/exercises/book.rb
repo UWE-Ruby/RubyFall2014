@@ -15,3 +15,5 @@ class Book
   end
 
 end
+
+aBook = Book.new( "Test", 10)
