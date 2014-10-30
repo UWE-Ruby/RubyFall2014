@@ -64,7 +64,7 @@ describe "The Rspec ruby gem" do
     end
 
     it "should count the characters in my name" do
-      "Renée".should have(5).characters
+      "Renée".should have(6).characters
     end
 
     it "should check how to spell my name" do
@@ -81,6 +81,10 @@ describe "The Rspec ruby gem" do
       (1+2-5*6/2).should eq -12
     end
     it "should count the characters in your name" do
+<<<<<<< HEAD
+      pending "make a test to count the characters in your name"
+=======
+>>>>>>> d15be6bea7f47e9899c2d287761019ffd7532ba0
       "Tom".should have(3).characters
     end
 
