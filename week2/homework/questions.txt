@@ -3,11 +3,22 @@ Containers, Blocks, and Iterators
 Sharing Functionality: Inheritance, Modules, and Mixins
 
 1. What is the difference between a Hash and an Array?
+A Hash has key-value pairs that can be any object and an Array uses only integers as an index.  
 
 2. When would you use an Array over a Hash and vice versa?
 
+An Array is used when you have an ordered list and it's ok to have an integer for the index. Also, it's easier to use an Array for iteration. 
+A Hash is used when you want to store information using a key that is not an integer. 
+
 3. What is a module? Enumerable is a built in Ruby module, what is it?
+A module is a collection of constants and methods. Enumerable has methods used for searching and sorting collections (i.e. Hash and Array). 
 
 4. Can you inherit more than one thing in Ruby? How could you get around this problem?
+A class can only inherit from one parent class, but by using Mixin Modules you can simulate multiple inheritance. 
 
 5. What is the difference between a Module and a Class?
+<<<<<<< HEAD
+Modules you can use across multiple classes. Modules are about functions and constants and classes are about objects and instances. 
+=======
+Modules you can use across multiple classes. Modules are about functions and constants and classes are about objects and instances.
+>>>>>>> 500e6f9d77bbce46d757bf3757289e7e5b1b69ae

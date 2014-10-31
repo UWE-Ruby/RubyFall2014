@@ -1,5 +1,5 @@
 # Hint: require needs to be able to find this file to load it
-require_relative "simon_says.rb"
+require_relative 'simon_says.rb'
 require_relative '../../spec_helper'
 
 describe SimonSays do
