@@ -5,3 +5,7 @@ task :rake1 do
       puts line
    end
 end
+
+task :rake2 do
+   f= Dir.mkdir(class)
+end
