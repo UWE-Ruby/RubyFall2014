@@ -1,6 +1,6 @@
 Please Read:
 Chapter 10 Basic Input and Output
-The Rake Gem: http://rake.rubyforge.org/
+The Rake Gem: http://docs.seattlerb.org/rake/
 
 1. How does Ruby read files?
 

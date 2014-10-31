@@ -13,7 +13,6 @@ describe Timer do
   end
 
   it "should return the run time for our code" do
-
     run_time = Timer.time_code do
       sleep(3)
       nil
