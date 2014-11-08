@@ -1,7 +1,8 @@
+# encoding: utf-8
+
 require 'rspec/collection_matchers'
 require_relative '../../spec_helper'
 
-# encoding: utf-8
 
 # Please make these examples all pass
 # You will need to change the 3 pending tests

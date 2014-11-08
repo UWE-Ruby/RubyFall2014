@@ -1,24 +1,29 @@
 module SimonSays
 
-	def echo(stuff)
-		stuff
-	end
+  def echo input
+    input
+  end
 
-	def shout(stuff)
-		stuff.to_s.upcase
-	end
+  def shout input
+    input.upcase!
+  end
 
-	def repeat(stuff, times = 2)
-		return_stuff = ((stuff + " ") * (times - 1)) + stuff
-		return_stuff
-	end
+  def repeat(input, n = 2)
+    with_white_space = input + " "
+    repeated_input = with_white_space * n
+    repeated_input.chop
+    ("#{input} " * n).chop
+  end
 
-	def start_of_word(stuff, position)
-		stuff[0 .. position -1]
-	end
+  def start_of_word input, i
+    input[0,i]
+    input[0...i]
+    input.slice(0,i)
+    input.slice(0...i)
+  end
 
-	def first_word(stuff)
-		stuff.split(" ")[0]
-	end
-
+  def first_word input
+    input.split[0]
+    input.split.first
+  end
 end
