@@ -1,5 +1,5 @@
-require_relative '../../spec_helper.rb'
 require "#{File.dirname(__FILE__)}/turkey"
+require_relative '../spec_helper'
 
 describe Turkey do
 
@@ -12,7 +12,7 @@ describe Turkey do
   end
 
   it "should be a kind of animal" do
-    @turkey.kind_of?(Animal).should be_true
+    @turkey.kind_of?(Animal).should be_truthy
   end
 
   it "should gobble speak" do
@@ -31,7 +31,7 @@ describe ThanksgivingDinner do
  end
 
  it "should be a kind of dinner" do
-   @t_dinner.kind_of?(Dinner).should be_true
+   @t_dinner.kind_of?(Dinner).should be_truthy
  end
 
  # Use inject here
@@ -40,7 +40,7 @@ describe ThanksgivingDinner do
  end
 
  it "should provide a menu" do
-   @t_dinner.respond_to?(:menu).should be_true
+   @t_dinner.respond_to?(:menu).should be_truthy
  end
 
  context "#menu" do
