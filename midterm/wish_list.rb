@@ -3,11 +3,12 @@ class WishList
   attr_writer :wishes
 
   def each
+    @wishes ||= []
     @wishes.each_with_index do |w,i|
       yield "#{i+1}. #{w}"
     end
-    # @wishes.to_enum.with_index(1) do |w,i|
-    #   yield "#{i}. #{w}"
-    # end
+    @wishes.to_enum.with_index(1) do |w,i|
+      yield "#{i}. #{w}"
+    end
   end
 end

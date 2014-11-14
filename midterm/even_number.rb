@@ -3,7 +3,13 @@ class EvenNumber
 	attr_reader :value
 
 	def self.new(value)
+		return false unless value.respond_to? :odd?
 		return false if value.odd?
+		super
+	end
+
+	def self.new!(value)
+		raise "NO ODD NUMBERS" if value.odd?
 		super
 	end
 
