@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'natron_test_gem' 
+puts "hello hello"

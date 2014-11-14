@@ -9,17 +9,32 @@ Instructions for Mid-Term submission and Git Review (10pts):
  - Push your changes to the remote
  - After 6pm Thursday November 13th you will not be able to push to your remote repository (or clone).
 
- Questions (20pts):
- - What are the three uses of the curly brackets {} in Ruby?
- - What is a regular expression and what is a common use for them?
- - What is the difference between how a String, a symbol, a FixNum, and a Float are stored in Ruby?
- - Are these two statements equivalent? Why or Why Not?
+Questions (20pts):
+ 1 - What are the three uses of the curly brackets {} in Ruby? 
+   A: Create a hash, string interpolation, and to specify a code block inline  
+
+ 2 - What is a regular expression and what is a common use for them?
+   A: a sequences of characters for identifying a certain search pattern. Often used for matching, replacing, and validating strings or other data. 
+
+ 3 - What is the difference between how a String, a symbol, a FixNum, and a Float are stored in Ruby?
+   A: String is stored as a separate object ID every time it is saved. Symbols and fixnums are stored as the same object ID. A float object is an inexact number stored as a representation. 
+
+ 4 - Are these two statements equivalent? Why or Why Not?
    1. x, y = "hello", "hello"
    2. x = y = "hello"
-- What is the difference between a Range and an Array?
-- Why would I use a Hash instead of an Array?
-- What is your favorite thing about Ruby so far?
-- What is your least favorite thing about Ruby so far?
+   A: No they are not equivalent. #1 creates two objects that are both equal to different separate hello strings. #2 creates three objects that are all the same as hello string. 
+
+5 - What is the difference between a Range and an Array?
+  A: A range is represented as a beginning and ending point and all items in-between are inferred. An array specifies all individual items in a list and each has a distinct position. 
+
+6 - Why would I use a Hash instead of an Array?
+  A: A hash gives you ability to define each value with a  key and call on that value with the key. An array uses positions to identify items in its set. YOu would use a hash when you have distinct pairs of data and want to have rapid lookup ability. You would use an array when you just have a list that you want to keep in a distinct order. 
+
+7 - What is your favorite thing about Ruby so far?
+  A: I like that you don't have to end everything in brackets and that white spacing is not a big deal. 
+
+8 - What is your least favorite thing about Ruby so far?
+  A: I don't like all the idiomatic knowledge that has to be acquired through experience (there's a way that works, a best way, a better way, and way bestest way). 
 
  Programming Problems (10pts each):
  - Write a passing rspec file called even_number_spec.rb that tests a class called EvenNumber.
