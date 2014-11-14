@@ -1,4 +1,4 @@
-require_relative '../../spec_helper.rb'
+require_relative '../spec_helper.rb'
 require "#{File.dirname(__FILE__)}/turkey"
 
 describe Turkey do
@@ -12,7 +12,7 @@ describe Turkey do
   end
 
   it "should be a kind of animal" do
-    @turkey.kind_of?(Animal).should be_true
+    @turkey.kind_of?(Animal).should be_truthy
   end
 
   it "should gobble speak" do
@@ -31,16 +31,16 @@ describe ThanksgivingDinner do
  end
 
  it "should be a kind of dinner" do
-   @t_dinner.kind_of?(Dinner).should be_true
+   @t_dinner.kind_of?(Dinner).should be_truthy
  end
 
- # Use inject here
+# Use inject here
  it "should sum the letters in each guest name for the seating chart size" do
    @t_dinner.seating_chart_size.should eq 45
  end
 
  it "should provide a menu" do
-   @t_dinner.respond_to?(:menu).should be_true
+   @t_dinner.respond_to?(:menu).should be_truthy
  end
 
  context "#menu" do
@@ -57,14 +57,14 @@ describe ThanksgivingDinner do
      @t_dinner.menu[:veggies].should eq [:ginger_carrots , :potatoes, :yams]
    end
 
-   # Dinners don't always have dessert, but ThanksgivingDinners always do!
+# Dinners don't always have dessert, but ThanksgivingDinners always do!
    it "should have desserts" do
      @t_dinner.menu[:desserts].should eq({:pies => [:pumkin_pie], :other => ["Chocolate Moose"], :molds => [:cranberry, :mango, :cherry]})
    end
 
  end
 
- # Use String interpolation, collection methods, and string methods for these two examples
+# Use String interpolation, collection methods, and string methods for these two examples
  it "should return what is on the dinner menu" do
    @t_dinner.whats_for_dinner.should eq "Tonight we have proteins Tofurkey and Hummus, and veggies Ginger Carrots, Potatoes, and Yams."
  end
