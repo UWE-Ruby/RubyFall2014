@@ -10,6 +10,9 @@ class TicTacToe
   def welcome_player
     "Welcome #{@player}"
   end
-
+  
+  def current_player
+    @player
+  end
 
 end
