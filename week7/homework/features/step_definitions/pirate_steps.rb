@@ -11,9 +11,11 @@ Letgoandhaul /^I hit (\w+)$/ do |arg|
 end
 
 Letgoandhaul /^it prints out '(.+)'$/ do |arg|
-	@result.split("\n ").first.should == arg
+	#@result.split("\n ").first.should == arg
+  expect(@result.split("\n ").first).to eq arg
 end
 
 Letgoandhaul /^it also prints '(.+)'$/ do |arg|
-	@result.split("\n ").last.should == arg
+	#@result.split("\n ").last.should == arg
+  expect(@result.split("\n ").last).to eq arg
 end
