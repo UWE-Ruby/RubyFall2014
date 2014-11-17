@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.version       = '0.0.0'
   s.date          = '2014-11-06'
   s.summary       = 'Hey!! There'
-  s.discription   = 'A simple gem'
+  s.description   = 'A simple gem'
   s.authors       = ["Joseph Simpson"]
   s.email         = 'jjs0sbw@example.com'
   s.files         = ["lib/jjs_hi.rb"]
