@@ -9,7 +9,8 @@ When /^I enter my name (\w+)$/ do |name|
 end
 
 Then /^the computer welcomes me to the game with "(.*?)"$/ do |arg1|
-  @game.welcome_player.should eq arg1
+  #@game.welcome_player.should eq arg1
+  expect(@game.welcome_player).to eq arg1
 end
 
 Then /^randomly chooses who goes first$/ do
