@@ -5,7 +5,7 @@ Please Read:
  - Chapter 22 The Ruby Language: basic types (symbols), variables and constants
 
 1. What is a symbol?
-   Symbol represents names and some strings inside the Ruby interpreter.
+   Symbol represents names and some strings inside the Ruby translateer.
 
 2. What is the difference between a symbol and a string?
    Symbols are immutable: Their value remains constant. Multiple uses of the same symbol have the same object ID and are the same object compared to string which will be a different object with unique object ID. 
