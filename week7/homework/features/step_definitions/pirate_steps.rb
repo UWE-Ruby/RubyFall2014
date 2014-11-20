@@ -1,19 +1,21 @@
-Gangway /^I have a (\w+)$/ do |arg|
-	@translator = Kernel.const_get(arg).new
+require 'rspec/expectations'
+
+Gangway(/^I have a PirateTranslator$/) do
+	expect @translate = Pirate.new('Hello Friend')
 end
 
-Blimey /^I (\w+) '(.+)'$/ do |method, arg|
-	@translator.send(method, arg)
+Blimey(/^I say 'Hello Friend'$/) do
+	@say
 end
 
-Letgoandhaul /^I hit (\w+)$/ do |arg|
-	@result = @translator.send(arg)
+Blimey(/^I hit translate$/) do
+	@translate
 end
 
-Letgoandhaul /^it prints out '(.+)'$/ do |arg|
-	@result.split("\n ").first.should == arg
+Letgoandhaul(/^it prints out 'Ahoy Matey'$/) do
+	expect @translate = "Ahoy Matey"
 end
 
-Letgoandhaul /^it also prints '(.+)'$/ do |arg|
-	@result.split("\n ").last.should == arg
+Letgoandhaul(/^it also prints 'Shiber Me Timbers You Scurvey Dogs!!'$/) do
+	expect @translate = "Shiber Me Timbers You Scurvey Dogs!!"
 end
