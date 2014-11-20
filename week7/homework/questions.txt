@@ -1,9 +1,35 @@
-
+Joseph Simpson -- 11-20-2014
 Please Read Chapters 23 and 24 DuckTyping and MetaProgramming
 
 Questions:
 1. What is method_missing and how can it be used?
-2. What is and Eigenclass and what is it used for? Where Do Singleton methods live?
-3. When would you use DuckTypeing? How would you use it to improve your code?
-4. What is the difference between a class method and an instance method? What is the difference between instance_eval and class_eval?
+A missing_method is a Ruby method that can be called from within the interpreter 
+when a specific event happens (like missing method). The missing_method method can
+be used as a call back to execute code when the event happens.  Missing_method may
+also be used to dynamically create object attributes by assignment.
+
+2. What is and Eigenclass and what is it used for? 
+An Eigenclass is an anonymous, dynamically generated class.  This class may be inserted into the Ruby method lookup hierarchy.  The Eigenclass is used to store and manage the objects singleton methods.
+
+Where Do Singleton methods live? In the Eigenclass.
+
+3. When would you use DuckTypeing? 
+Ducktyping is good for building flexible tests.
+Ducktyping is also good for flexible code interface development.
+How would you use it to improve your code?
+Write flexible code that is not constrained by specific object types.
+Focus on what the code does not what the code is.
+
+4. What is the difference between a class method and an instance method?
+Instance methods are called on an instance of a class.
+Class methods are called on a class (self.foo).
+
+What is the difference between instance_eval and class_eval?
+Instance_eval defines class methods.
+Class_eval defines instance methods. 
+
 5. What is the difference between a singleton class and a singleton method?
+A  Ruby singleton class and a metaclass are the same thing.
+A Ruby singleton class can not have instances of the singleton class.
+A Ruby singleton method is available only for a specific instance of a class (object).
+

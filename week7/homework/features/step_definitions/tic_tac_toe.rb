@@ -3,8 +3,9 @@ class TicTacToe
   SYMBOLS = [:X, :O]
   attr_accessor :player
   
-  def initialize(player)
+  def initialize(player = nil, player_symbol=nil)
     @player = player
+    @player_symbol = player_symbol
     @board
   end
 
@@ -24,5 +25,8 @@ class TicTacToe
     SYMBOLS[1]
   end
 
+  def indicate_player_turn
+    puts "#{@player}' Turn"
+  end
 
 end

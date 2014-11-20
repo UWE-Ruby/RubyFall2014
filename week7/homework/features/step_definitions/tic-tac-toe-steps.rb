@@ -1,5 +1,7 @@
 require 'rspec/mocks/standalone'
 require 'rspec/expectations'
+
+
 Given /^I start a new Tic\-Tac\-Toe game$/ do
   @game = TicTacToe.new
 end
@@ -29,16 +31,19 @@ Given /^I have a started Tic\-Tac\-Toe game$/ do
 end
 
 Given /^it is my turn$/ do
-  @game.current_player.should eq "Renee"
+  #@game.current_player.should eq "Renee"
+  expect(@game.current_player).to eq "Renee"
 end
 
 Given /^the computer knows my name is Renee$/ do
-  @game.player.should eq "Renee"
+  #@game.player.should eq "Renee"
+  expect(@game.player).to eq "Renee"
 end
 
 Then /^the computer prints "(.*?)"$/ do |arg1|
   @game.should_receive(:puts).with(arg1)
-  @game.indicate_palyer_turn
+  #expect(@game.should_receive(:puts).with(arg1)
+  @game.indicate_player_turn
 end
 
 Then /^waits for my input of "(.*?)"$/ do |arg1|
@@ -46,7 +51,7 @@ Then /^waits for my input of "(.*?)"$/ do |arg1|
   @game.get_player_move
 end
 
-Given /^it is the computer's turn$/ do
+Given /^it is the computers turn$/ do
   @game = TicTacToe.new(:computer, :O)
   @game.current_player.should eq "Computer"
 end
