@@ -1,0 +1,9 @@
+$ rspec wish_list_spec.rb
+;rspec
+WishList
+  should mixin Enumerable
+  #each
+    should give me a numberd list
+
+Finished in 0.00295 seconds (files took 0.12668 seconds to load)
+2 examples, 0 failures

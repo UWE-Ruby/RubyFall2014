@@ -1,4 +1,5 @@
 require "#{File.dirname(__FILE__)}/wish_list"
+require_relative '../spec_helper.rb'
 
 describe WishList do
   before :each do
@@ -7,7 +8,8 @@ describe WishList do
   end
 
   it "should mixin Enumerable" do
-    @wish_list.is_a?(Enumerable).should be_true
+    #@wish_list.is_a?(Enumerable).should be_true
+    @wish_list.is_a?(Enumerable).should be_truthy
   end
 
   context "#each" do

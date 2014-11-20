@@ -1,15 +1,39 @@
-Please read: 
-Chapter 3 Classes, Objects, and Variables 
+Min Fei Kenny Lu
+
+Please read:
+Chapter 3 Classes, Objects, and Variables
 p.86-90 Strings (Strings section in Chapter 6 Standard Types)
 
 1. What is an object?
+Everything in Ruby is an object. All objects have an identity and an internal state (such as the example from our text, title and artist).
+Object is the default root of all Ruby objects. Object also inherits from ÔBasicObjectÕ which allows creating alternate object hierarchies.
+In other words, any piece of data is data is an object, like the number 6 or the string 'World'.
 
 2. What is a variable?
+Variables are used to keep track of objects; each variable holds a reference to an object. In other words, a variable is a reference to an object.
+Objects are in a big pool and being pointed to by variables.
 
 3. What is the difference between an object and a class?
+Ruby separates everything into classes, like integers, floats and strings. An object is a unit of data and a class is what kind of data it is.
+For instance, the number 1 and 7 are different numbers and they are different objects; however, they are both integer so they are in the same class.
 
 4. What is a String?
+The word we use for groups of letters is string; hence it is simply a sequence of characters. For instance ÔHelloÕ, ÔRuby is powerfulÕ and ÔHello WorldÕ. Notice once Ruby treats it as string it does not do addition.
+irb(main):002:0> "1" + "2"
+=> "12"
 
 5. What are three messages that I can send to a string object? Hint: think methods
+String#split (pass /\S*\|\S*/ splits the line into tokens wherever split find a vertical bar or surrounded by spaces)
+String#chomp (chomp removes carriage return characters, \n, \r and \r\n)
+String#squeeze (trims runs of repeated characters)
+
 
 6. What are two ways of defining a String literal? Bonus: What is the difference between them?
+When a string appears literally in source code, it is known as string literal. String literals are enclosed by single or double quotes
+
+%q -- think of it as a thin quote as in Ô
+%Q -- think of it as a thick quote as in Ò
+
+Single quote does string interpolation
+Escape sequence (escaped character) does not work in single quote
+

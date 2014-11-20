@@ -1,0 +1,10 @@
+$ rspec even_number_spec.rb
+;rspec
+EvenNumber
+  should only allow even numbers
+  should get the next even number
+  should compare even numbers
+  should generate a range of even numbers
+
+Finished in 0.00257 seconds (files took 0.0963 seconds to load)
+4 examples, 0 failures
