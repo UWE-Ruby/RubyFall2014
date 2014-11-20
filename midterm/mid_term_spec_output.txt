@@ -1,0 +1,21 @@
+$ rspec mid_term_spec.rb
+;rspec
+Turkey
+  should report the turkey weight
+  should be a kind of animal
+  should gobble speak
+
+ThanksgivingDinner
+  should be a kind of dinner
+  should sum the letters in each guest name for the seating chart size
+  should provide a menu
+  should return what is on the dinner menu
+  should return what is on the dessert menu
+  #menu
+    should have a diet specified
+    should have proteins
+    should have vegetables
+    should have desserts
+
+Finished in 0.00762 seconds (files took 0.17988 seconds to load)
+12 examples, 0 failures

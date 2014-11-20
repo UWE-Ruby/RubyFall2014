@@ -3,7 +3,32 @@ Please Read Chapters 23 and 24 DuckTyping and MetaProgramming
 
 Questions:
 1. What is method_missing and how can it be used?
+Method_missing is a tool in Ruby where it gets called when a object tries to call a method that is missing.
+It must call 'super' if you don't plan on handling the given method. Method_missing is normally a slower execution.
+
 2. What is and Eigenclass and what is it used for? Where Do Singleton methods live?
+Singleton methods in Ruby live in a special hidden class called the Singleton class aka eigenclass.
+Singleton restricts instantiation of a class to only one instance that is globally.
+It is particularly applicable when the instance needs to be accessed by different parts of the application.
+
 3. When would you use DuckTypeing? How would you use it to improve your code?
+Duck Typing emphasizes on the operational aspect of the method instead of the actual class or the type of the object.
+In other words, a programmer is only concerned with the object's behavior rather than the specific type.
+If an object quacks like a duck or acts like a string, just go ahead and treat it as a duck or string.
+It can be used to improve agility and flexibility as we are treating objects according to the method rather than
+the inherited class or module
+
 4. What is the difference between a class method and an instance method? What is the difference between instance_eval and class_eval?
+Class methods call on a class and instance methods call on an instance of a class.
+Instance_eval evaluates a string containing Ruby source code, or the given block, within the context of the object.
+Class_eval evaluates the string or block in the context of the Module or Class
+
 5. What is the difference between a singleton class and a singleton method?
+Singleton class allows the programmer to create object instances that are not entirely defined by its class or by its hierachy.
+Singleton class holds Singleton methods. It can be viewed as a bare class that sits between every object and its class in the
+inheritance hierarchy. The Singleton class is anonymous and it cannot instantiate new objects.
+
+The behavior of lion instances in general is placed in the Lion class.
+In Ruby we can also have unique behavior to individual objects. In other words,
+we can create methods for a specific cat object that are not shared by other instances of the Cat class.
+These methods are often known as singleton methods as they belong to a single object only.
