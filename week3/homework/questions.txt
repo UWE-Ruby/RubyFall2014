@@ -1,3 +1,4 @@
+
 Please Read: 
  - Chapter 6 Standard Types
  - Review Blocks
@@ -6,10 +7,20 @@ Please Read:
 
 1. What is a symbol?
 
+A symbol is a constant name that is guaranteed to be unique and contain the same value through out the entire program. 
+
 2. What is the difference between a symbol and a string?
+
+Symbols are immutable, where as strings are mutable. Symbols are often used as hash keys because they are immutable. 
 
 3. What is a block and how do I call a block?
 
+A block is code between do and end or between brackets. An iterator method can call a block. The format for a block is first you have a collection for the method to iterator over then you have the keyword “do” or a open curly bracket then the value to be passed in, then the code, and finally a closing curly bracket or and “end” keyword.  
+
 4. How do I pass a block to a method? What is the method signature?
 
+By using the keyword yield you can pass a block to a method. You can also pass parameters to a block and a method can receive values from a block using method. The method signature is the method name with the parameter list.   
+
 5. Where would you use regular expressions?
+
+You can use a regular expression to test a string for a matching pattern, to extract a matching pattern from a string, and substitution. 

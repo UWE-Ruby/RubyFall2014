@@ -11,8 +11,13 @@ Instructions for Mid-Term submission and Git Review (10pts):
 
  Questions (20pts):
  - What are the three uses of the curly brackets {} in Ruby?
+
+T
  - What is a regular expression and what is a common use for them?
  - What is the difference between how a String, a symbol, a FixNum, and a Float are stored in Ruby?
+Floats are saved by the same object id, saves them as a singleton above 32 bits it doesn’t freeze it anymore
+symbols are fixed strings, its a singleton, it is always the same symbol when you reference it.saves on memorygit 
+in contrast when you use strings a a differnt instance when referenced by the same characters
  - Are these two statements equivalent? Why or Why Not?
    1. x, y = "hello", "hello"
    2. x = y = "hello"

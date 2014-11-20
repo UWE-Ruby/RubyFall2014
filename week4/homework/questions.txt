@@ -4,10 +4,25 @@ The Rake Gem: http://rake.rubyforge.org/
 
 1. How does Ruby read files?
 
+Ruby reads a line from a standard input or files specified when gets or file.gets is used. 
+There are also iterators you can use to read files. IO#each_byte iterates over 8-bit bytes from the IO object. IO#each_line calls the block with each line from the file. IO#foreach opens the file to read, calls the block on one line from the file then closes the file. IO#read gets an entire file into a string or into an array of lines.
+
 2. How would you output "Hello World!" to a file called my_output.txt?
+
+File.open(“my_output.txt”, “w”) do |file|
+    file.puts “Hello World!”
+end
+
+puts File.read(“my_output.txt”)
 
 3. What is the Directory class and what is it used for?
 
+the Directory class is a way to list files and directories in Ruby. You can make instances of the Dir class and you can iterate over an object of the Dir class.
+
 4. What is an IO object?
 
+An IO object is a way for a ruby program to write to or read from an external resource.
+
 5. What is rake and what is it used for? What is a rake task?
+
+Rake is an internal Domain Specific Language based in Ruby. Rake has libraries that make it easy to do tasks that are common during the build and deploy process. You can define a rake task to customize it or if you don’t define a rake task then it defaults to test. 
