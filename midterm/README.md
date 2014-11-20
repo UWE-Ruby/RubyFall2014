@@ -1,4 +1,0 @@
-Midterm
-=======
-
-Midterm
