@@ -3,7 +3,12 @@ Please Read Chapters 23 and 24 DuckTyping and MetaProgramming
 
 Questions:
 1. What is method_missing and how can it be used?
+    A: Method missing is something you set on an object. You set it to return when an unanswerable message is sent to the object. It helps you handle such requests more gracefully then just sending a NoMethodError exception. You set it with def method_missing(m, *args, &block) [message] end 
 2. What is and Eigenclass and what is it used for? Where Do Singleton methods live?
+    A: An Eigenclass is a dynamically created anonymous class that is inserted into the method lookup path when an individual object is altered but the parent class is not. Singleton methods live in the objects not the classes. 
 3. When would you use DuckTypeing? How would you use it to improve your code?
+    A: You would use ducktyping when you want to change the behavior of an object without creating a new class or altering an existing one. You would use this to make your existing code cleaner without introducing too many layers of unnecessary inheritance. 
 4. What is the difference between a class method and an instance method? What is the difference between instance_eval and class_eval?
+    A: A class method is available from a class itself. Instance methods are called on an instance of a class. CLass_eval allows you to call a method within the person class without having to open the class. The instance_eval does something similar but works on an instance of the class, not the class itself. 
 5. What is the difference between a singleton class and a singleton method?
+    A: A singleton class is available for all instances of that anonymous class. A singleton method might be an anonymous method assigned to a class but not by other instances of that class. 

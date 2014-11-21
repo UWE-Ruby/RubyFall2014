@@ -13,5 +13,4 @@ Scenario:
 	Given I have entered 75 into the converter
 	And I set the type to Fahrenheit
 	When I press convert
-	Then the result returned should be 23.9
-	
+	Then the result returned should be 23.9 
