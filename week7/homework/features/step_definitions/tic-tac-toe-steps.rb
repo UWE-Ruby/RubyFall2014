@@ -1,5 +1,7 @@
 require 'rspec/mocks/standalone'
 require 'rspec/expectations'
+#require_relative '../../../../spec_helper'
+
 Given /^I start a new Tic\-Tac\-Toe game$/ do
   @game = TicTacToe.new
 end
@@ -13,11 +15,11 @@ Then /^the computer welcomes me to the game with "(.*?)"$/ do |arg1|
 end
 
 Then /^randomly chooses who goes first$/ do
-  [@game.player, "Computer"].should include @game.current_player
+  expect([@game.player, "Computer"]).to include(@game.current_player)
 end
 
 Then /^who is X and who is O$/ do
-  TicTacToe::SYMBOLS.should include @game.player_symbol, @game.computer_symbol
+  expect(TicTacToe::SYMBOLS).to include(@game.player_symbol, @game.computer_symbol)
 end
 
 Given /^I have a started Tic\-Tac\-Toe game$/ do
@@ -35,7 +37,7 @@ end
 
 Then /^the computer prints "(.*?)"$/ do |arg1|
   @game.should_receive(:puts).with(arg1)
-  @game.indicate_palyer_turn
+  @game.indicate_player_turn
 end
 
 Then /^waits for my input of "(.*?)"$/ do |arg1|
