@@ -53,9 +53,9 @@ Then /^waits for my input of "(.*?)"$/ do |arg1|
 end
 
 Given /^it is the computers turn$/ do
-  @game = TicTacToe.new(:computer, :O)
+  @game = TicTacToe.new(:computer, :X)
   #@game.current_player.should eq "Computer"
-  expect(@game.player.current_player).to eq "Computer"
+  expect(@game.current_player).to eq "Computer"
 end
 
 Then /^the computer randomly chooses an open position for its move$/ do
