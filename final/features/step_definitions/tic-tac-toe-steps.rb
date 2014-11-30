@@ -54,21 +54,26 @@ end
 
 Given /^it is the computers turn$/ do
   @game = TicTacToe.new(:computer, :O)
-  @game.current_player.should eq "Computer"
+  #@game.current_player.should eq "Computer"
+  expect(@game.player.current_player).to eq "Computer"
 end
 
 Then /^the computer randomly chooses an open position for its move$/ do
   open_spots = @game.open_spots
   @com_move = @game.computer_move
-  open_spots.should include(@com_move)
+  #open_spots.should include(@com_move)
+  expect(open_spots).to include(@com_move)
 end
 
 Given /^the computer is playing X$/ do
-  @game.computer_symbol.should eq :X
+  #@game.computer_symbol.should eq :X
+  expect(@game.computer_symbol).to eq :X
 end
 
 Then /^the board should have an X on it$/ do
-  @game.current_state.should include 'X'
+  #@game.current_state.should include 'X'
+  expect(@game.computer_symbol).to include 'X'
+
 end
 
 Given /^I am playing X$/ do
