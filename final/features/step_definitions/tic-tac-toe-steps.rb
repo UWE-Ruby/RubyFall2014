@@ -78,35 +78,42 @@ end
 
 Given /^I am playing X$/ do
   @game = TicTacToe.new(:computer, :X)
-  @game.player_symbol.should eq :X
+  #@game.player_symbol.should eq :X
+  expect(@game.player_symbol).to eq :X
 end
 
 When /^I enter a position "(.*?)" on the board$/ do |arg1|
   @old_pos = @game.board[arg1.to_sym]
-  @game.should_receive(:get_player_move).and_return(arg1)
-  @game.player_move.should eq arg1.to_sym
+  #@game.should_receive(:get_player_move).and_return(arg1)
+  expect(@game).to receive(:get_player_move).and_return(arg1)
+  #@game.player_move.should eq arg1.to_sym
+  expect(@get_player_move).to eq arg1.to_sym
 end
 
 When /^"(.*?)" is not taken$/ do |arg1|
-  @old_pos.should eq " "
+  #@old_pos.should eq " "
+  expect(@old_pos).to eq " "
 end
 
-Then /^it is now the computer's turn$/ do
-  @game.current_player.should eq "Computer"
+Then /^it is now the computers turn$/ do
+  #@game.current_player.should eq "Computer"
+  expect(@game.current_player).to eq "Computer"
 end
 
-When /^there are three X's in a row$/ do
+When /^there are three Xs in a row$/ do
   @game = TicTacToe.new(:computer, :X)
   @game.board[:C1] = @game.board[:B2] = @game.board[:A3] = :X
 end
 
 Then /^I am declared the winner$/ do
   @game.determine_winner
-  @game.player_won?.should be_true
+  #@game.player_won?.should be_true
+  expect(@game.player_won?).to be true
 end
 
 Then /^the game ends$/ do
-  @game.over?.should be_true
+  #@game.over?.should be_true
+  expect(@game.over?).to be true
 end
 
 Given /^there are not three symbols in a row$/ do
@@ -119,11 +126,13 @@ Given /^there are not three symbols in a row$/ do
 end
 
 When /^there are no open spaces left on the board$/ do
-  @game.spots_open?.should be_false
+  #@game.spots_open?.should be_false
+  expect(@game.spots_open?).to be false
 end
 
 Then /^the game is declared a draw$/ do
-  @game.draw?.should be_true
+  #@game.draw?.should be_true
+  expect(@game.draw?).to be true
 end
 
 When /^"(.*?)" is taken$/ do |arg1|
@@ -133,6 +142,8 @@ end
 
 Then /^computer should ask me for another position "(.*?)"$/ do |arg1|
   @game.board[arg1.to_sym] = ' '
-  @game.should_receive(:get_player_move).twice.and_return(@taken_spot, arg1)
-  @game.player_move.should eq arg1.to_sym
+  #@game.should_receive(:get_player_move).twice.and_return(@taken_spot, arg1)
+  expect(@game).to receive(:get_player_move).twice.and_return(@taken_spot, arg1)
+  #@game.player_move.should eq arg1.to_sym
+  expect(@game.player_move).to eq arg1.to_sym
 end
