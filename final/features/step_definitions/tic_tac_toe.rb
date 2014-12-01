@@ -9,9 +9,9 @@ class TicTacToe
     @player_symbol = initial_symbol || SYMBOLS.sample
     
     @board = {
-      :A1 => ' ', :A2 => ' ', :A3 => ' ',
-      :B1 => ' ', :B2 => ' ', :B3 => ' ',
-      :C1 => ' ', :C2 => ' ', :C3 => ' '
+      :A1 => '', :A2 => '', :A3 => '',
+      :B1 => '', :B2 => '', :B3 => '',
+      :C1 => '', :C2 => '', :C3 => ''
     }
   end
 
@@ -48,6 +48,18 @@ class TicTacToe
 
   def get_player_move
 
+  end
+
+  def open_spots
+    empty_spots = []
+    @board.each { |index, value| empty_spots << index if @board[index].empty? }
+    empty_spots
+  end
+
+  def computer_move
+    move_spot = open_spots.sample
+    @board[move_spot] = @computer_symbol
+    move_spot
   end
 
 end

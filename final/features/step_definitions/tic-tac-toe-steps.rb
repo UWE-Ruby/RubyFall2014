@@ -52,9 +52,9 @@ Then /^waits for my input of "(.*?)"$/ do |arg1|
   @game.get_player_move
 end
 
-Given /^it is the computer's turn$/ do
+Given /^it is the computer's turn$/ do #'
   @game = TicTacToe.new(:computer, :X)
-  #@game.current_player.should eq "Computer"
+  #@game.current_player.should eq "Computer" 
   expect(@game.current_player).to eq "Computer"
 end
 
