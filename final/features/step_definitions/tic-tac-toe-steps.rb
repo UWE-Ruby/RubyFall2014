@@ -92,15 +92,15 @@ end
 
 When /^"(.*?)" is not taken$/ do |arg1|
   #@old_pos.should eq " "
-  expect(@old_pos).to eq " "
+  expect(@old_pos).to eq ""
 end
 
-Then /^it is now the computers turn$/ do
+Then /^it is now the computer's turn$/ do #'
   #@game.current_player.should eq "Computer"
   expect(@game.current_player).to eq "Computer"
 end
 
-When /^there are three Xs in a row$/ do
+When /^there are three X's in a row$/ do #'
   @game = TicTacToe.new(:computer, :X)
   @game.board[:C1] = @game.board[:B2] = @game.board[:A3] = :X
 end
