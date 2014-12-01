@@ -57,7 +57,8 @@ class TicTacToe
 
   def computer_move
     move_spot = @empty_spots.sample
-    @board[move_spot] = computer_symbol
+    @board[move_spot] = { :X => 'X', :O => 'O' }[computer_symbol]
+    @current_player = :player
     move_spot
   end
 
@@ -66,5 +67,19 @@ class TicTacToe
     #{@board[:B1]} | #{@board[:B2]} | #{@board[:B3]} \n \
     #{@board[:C1]} | #{@board[:C2]} | #{@board[:C3]} \n "
   end
+
+  def get_player_move
+    gets.chomp
+  end
+
+
+
+
+
+
+
+
+
+
 
 end

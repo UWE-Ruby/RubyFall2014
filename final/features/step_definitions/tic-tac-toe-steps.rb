@@ -49,7 +49,7 @@ end
 Then /^waits for my input of "(.*?)"$/ do |arg1|
   #@game.should_receive(:gets).and_return(arg1)
   expect(@game).to receive(:gets).with(arg1)
-  @game.get_player_move
+  #@game.get_player_move
 end
 
 Given /^it is the computer's turn$/ do #'
