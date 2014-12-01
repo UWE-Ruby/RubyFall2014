@@ -72,7 +72,7 @@ end
 
 Then /^the board should have an X on it$/ do
   #@game.current_state.should include 'X'
-  expect(@game.computer_symbol).to include 'X'
+  expect(@game.current_state).to include 'X'
 
 end
 
