@@ -7,8 +7,12 @@ class TicTacToe
   def initialize(initial_player = nil, initial_symbol=nil)
     @current_player = initial_player || PLAYERS.sample
     @player_symbol = initial_symbol || SYMBOLS.sample
-    #@current_player = {:player => @player, :computer => "Computer"}
-    @board = Array.new(3) {Array.new(3, ' ')}
+    
+    @board = {
+      :A1 => ' ', :A2 => ' ', :A3 => ' ',
+      :B1 => ' ', :B2 => ' ', :B3 => ' ',
+      :C1 => ' ', :C2 => ' ', :C3 => ' '
+    }
   end
 
   #def set_player(player = 'TheMan', player_symbol = :X )
@@ -18,20 +22,24 @@ class TicTacToe
   #end
 
   def welcome_player
-    "Welcome #{player}"
+    "Welcome #{@player}"
   end
   
   def current_player
-    {:player => @player, :computer => "Computer"}[@current_player]
+    {:player => @player, :computer => 'Computer'}[@current_player]
   end
 
   def player_symbol
-    #SYMBOLS[0]
     @player_symbol
   end
 
   def computer_symbol
-    SYMBOLS[1]
+    if (@current_player == 'Computer')
+      computer_symbol = @player_symbol
+    else
+      x = SYMBOLS.index(player_symbol)
+      computer_symbol = SYMBOLS[(x - 1).abs]
+    end
   end
 
   def indicate_player_turn
