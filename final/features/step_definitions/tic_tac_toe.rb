@@ -34,7 +34,7 @@ class TicTacToe
   end
 
   def computer_symbol
-    if (@current_player == 'Computer')
+    if (current_player == 'Computer')
       computer_symbol = @player_symbol
     else
       x = SYMBOLS.index(player_symbol)
