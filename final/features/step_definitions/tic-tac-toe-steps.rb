@@ -87,7 +87,7 @@ When /^I enter a position "(.*?)" on the board$/ do |arg1|
   #@game.should_receive(:get_player_move).and_return(arg1)
   expect(@game).to receive(:get_player_move).and_return(arg1)
   #@game.player_move.should eq arg1.to_sym
-  expect(@get_player_move).to eq arg1.to_sym
+  expect(@game.player_move).to eq arg1.to_sym
 end
 
 When /^"(.*?)" is not taken$/ do |arg1|

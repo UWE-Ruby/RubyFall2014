@@ -72,6 +72,13 @@ class TicTacToe
     gets.chomp
   end
 
+  def player_move
+    player_spot = get_player_move.to_sym
+    @board[player_spot] = player_symbol
+    @current_player = :computer
+    player_spot
+  end  
+
 
 
 
