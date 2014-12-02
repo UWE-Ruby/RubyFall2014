@@ -141,7 +141,7 @@ When /^"(.*?)" is taken$/ do |arg1|
 end
 
 Then /^computer should ask me for another position "(.*?)"$/ do |arg1|
-  @game.board[arg1.to_sym] = ' '
+  @game.board[arg1.to_sym] = ''
   #@game.should_receive(:get_player_move).twice.and_return(@taken_spot, arg1)
   expect(@game).to receive(:get_player_move).twice.and_return(@taken_spot, arg1)
   #@game.player_move.should eq arg1.to_sym
