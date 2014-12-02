@@ -57,11 +57,6 @@ class TicTacToe
 		print "#{current_player}'s Move:"
 	end
 
-	def player_move
-		move = get_player_move
-		move.to_sym
-	end
-
 	def get_player_move
 		loop do
 			move = gets
@@ -70,9 +65,15 @@ class TicTacToe
 			print "Invalid move, try again:"
 		end
 		@board[@move] = @player_symbol
+		# sometimes board doesn't get set!!
 		#puts "**** #{@board.inspect}"
 		@turn = :computer
 		@move
+	end
+
+	def player_move
+		move = get_player_move
+		move.to_sym # get_player_move should always return a symbol but seems to sometimes return a string!!!
 	end
 
 	def computer_move
@@ -108,8 +109,9 @@ class TicTacToe
 	end
 
 	def current_state
-		state = ""
+		state = "  1 2 3\n"
 		for y in 0..2
+			state += "#{('A'..'C').to_a[y]} "
 			for x in 0..2
 				coords = coords_to_sym x, y
 				state += @board[coords].to_s
@@ -118,7 +120,7 @@ class TicTacToe
 			state.chop!
 			state += "\n"
 			if y < 2
-				state += "-+-+-\n"
+				state += "  -+-+-\n"
 			end
 		end
 		state += "\n"
