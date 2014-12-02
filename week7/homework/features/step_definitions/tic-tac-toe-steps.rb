@@ -35,13 +35,13 @@ Given /^the computer knows my name is Renee$/ do
 end
 
 Then /^the computer prints "(.*?)"$/ do |arg1|
-  #@game.should_receive(:puts).with(arg1)
+  #   @game.should_receive(:puts).with(arg1)
   expect(@game).to receive(:puts).with(arg1)
   @game.indicate_palyer_turn
 end
 
 Then /^waits for my input of "(.*?)"$/ do |arg1|
-  #@game.should_receive(:gets).and_return(arg1)
+  #   @game.should_receive(:gets).and_return(arg1)
   expect(@game).to receive(:gets).and_return(arg1)
   @game.get_player_move
 end
@@ -72,7 +72,7 @@ end
 
 When /^I enter a position "(.*?)" on the board$/ do |arg1|
   @old_pos = @game.board[arg1.to_sym]
-  #@game.should_receive(:get_player_move).and_return(arg1)
+  #   @game.should_receive(:get_player_move).and_return(arg1)
   expect(@game).to receive(:get_player_move).and_return(arg1)
   @game.player_move.should eq arg1.to_sym
 end
@@ -123,6 +123,7 @@ end
 
 Then /^computer should ask me for another position "(.*?)"$/ do |arg1|
   @game.board[arg1.to_sym] = ' '
-  @game.should_receive(:get_player_move).twice.and_return(@taken_spot, arg1)
+  #   @game.should_receive(:get_player_move).twice.and_return(@taken_spot, arg1)
+  expect(@game).to receive(:get_player_move).twice.and_return(@taken_spot, arg1)
   @game.player_move.should eq arg1.to_sym
 end

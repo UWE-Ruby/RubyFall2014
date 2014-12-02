@@ -54,25 +54,25 @@ class TicTacToe
 	end
 
 	def indicate_palyer_turn
-		"#{current_player}'s Move:"
-		"it doesn't seem to matter what I return here"
-	end
-
-	def get_player_move
-		gets "*** get_player_move"
-		move = gets
-		@move = move.to_sym
-		@board[@move] = @player_symbol
-		@turn = :computer
-		move
+		print "#{current_player}'s Move:"
 	end
 
 	def player_move
-		@move
+		move = get_player_move
+		move.to_sym
 	end
 
-	def coords_to_sym x, y
-		"#{('A'..'C').to_a[x]}#{y+1}".to_sym
+	def get_player_move
+		loop do
+			move = gets
+			@move = move.chomp.to_sym
+			break if @board.has_key?(@move) && @board[@move] == " "
+			print "Invalid move, try again:"
+		end
+		@board[@move] = @player_symbol
+		#puts "**** #{@board.inspect}"
+		@turn = :computer
+		@move
 	end
 
 	def computer_move
@@ -86,6 +86,10 @@ class TicTacToe
 		coords	
 	end
 
+	def coords_to_sym x, y
+		"#{('A'..'C').to_a[y]}#{x+1}".to_sym
+	end
+
 	def open_spots
 		open = []
 		for x in 0..2
@@ -97,6 +101,10 @@ class TicTacToe
 			end
 		end
 		open
+	end
+
+	def spots_open?
+		open_spots.length > 0
 	end
 
 	def current_state
@@ -113,6 +121,7 @@ class TicTacToe
 				state += "-+-+-\n"
 			end
 		end
+		state += "\n"
 		state
 	end
 
@@ -176,23 +185,15 @@ class TicTacToe
 		@winner == :player
 	end
 
+	def computer_won?
+		@winner == :computer
+	end
+
 	def over?
 		@winner != nil
 	end
 
 	def draw?
 		@winner == :draw
-	end
-
-	def spots_open?
-		for y in 0..2
-			for x in 0..2
-				coords = coords_to_sym x, y
-				if @board[coords] == " " 
-					return true
-				end
-			end
-		end
-		false
 	end
 end
