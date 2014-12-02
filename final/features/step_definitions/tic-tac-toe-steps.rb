@@ -77,7 +77,7 @@ Then /^the board should have an X on it$/ do
 end
 
 Given /^I am playing X$/ do
-  @game = TicTacToe.new(:computer, :X)
+  @game = TicTacToe.new(:player, :X)
   #@game.player_symbol.should eq :X
   expect(@game.player_symbol).to eq :X
 end
@@ -101,7 +101,7 @@ Then /^it is now the computer's turn$/ do #'
 end
 
 When /^there are three X's in a row$/ do #'
-  @game = TicTacToe.new(:computer, :X)
+  @game = TicTacToe.new(:player, :X)
   @game.board[:C1] = @game.board[:B2] = @game.board[:A3] = :X
 end
 

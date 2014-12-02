@@ -9,7 +9,11 @@ class Couch
 		define_method("how_many_#{s}?") do
 			instance_variable_get("@#{s}").count
 		end
-	end
+  end
+
+  [:pillows, :cushions, :dogs].each do |s|
+    define_method("#{s}.map &:to_s")
+   end
 
   def pillow_colors
     @pillows.map &:to_s
