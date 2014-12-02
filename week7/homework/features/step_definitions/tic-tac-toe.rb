@@ -24,7 +24,14 @@ class TicTacToe
 			@player_symbol = with_symbol
 			@computer_symbol = opposite_symbol with_symbol				
 		end
+
 		@board = {}
+		for x in 0..2
+			for y in 0..2
+				coords = coords_to_sym x, y
+				@board[coords] = " "
+			end
+		end
 	end
 
 	def opposite_symbol symbol
@@ -47,42 +54,33 @@ class TicTacToe
 	end
 
 	def indicate_palyer_turn
-		"#{current_player}'s turn"
+		"#{current_player}'s Move:"
+		"it doesn't seem to matter what I return here"
 	end
 
-
-	# def puts move
-	# 	put "********** move=#{move}"
-	# 	@move = move.to_sym
-	# 	if @turn == :player
-	# 		@turn = :computer
-	# 	else
-	# 		@turn = :player
-	# 	end
-	# end
-
-	# def gets arg
-	# 	put "********** arg=#{arg}"
-	# 	@move
-	# end
-
 	def get_player_move
-		@move = gets
+		gets "*** get_player_move"
+		move = gets
+		@move = move.to_sym
 		@board[@move] = @player_symbol
 		@turn = :computer
+		move
+	end
+
+	def player_move
 		@move
 	end
 
-	def coords_to_s x, y
-		"#{('A'..'C').to_a[x]}#{y}".to_sym
+	def coords_to_sym x, y
+		"#{('A'..'C').to_a[x]}#{y+1}".to_sym
 	end
 
 	def computer_move
 		begin
-			x = Random.new.rand(1..3)
-			y = Random.new.rand(1..3)
-			coords = coords_to_s x, y
-		end while @board.has_key? coords
+			x = Random.new.rand(0..2)
+			y = Random.new.rand(0..2)
+			coords = coords_to_sym x, y
+		end while @board[coords] != " "
 		@board[coords] = @computer_symbol
 		@turn = :player
 		coords	
@@ -90,13 +88,10 @@ class TicTacToe
 
 	def open_spots
 		open = []
-		for x in 1..3
-			for y in 1..3
-				coords = coords_to_s x, y
-				if ! @board.has_key? coords
-					#if open != ""
-					#	open += ", "
-					#end
+		for x in 0..2
+			for y in 0..2
+				coords = coords_to_sym x, y
+				if @board[coords] == " "
 					open << coords
 				end
 			end
@@ -106,31 +101,98 @@ class TicTacToe
 
 	def current_state
 		state = ""
-		for y in 1..3
-			for x in 1..3
-				coords = coords_to_s x, y
-				if @board.has_key? coords
-					state += @board[coords].to_s
-				else
-					state += " "
-				end
+		for y in 0..2
+			for x in 0..2
+				coords = coords_to_sym x, y
+				state += @board[coords].to_s
+				state += '|'
 			end
+			state.chop!
 			state += "\n"
+			if y < 2
+				state += "-+-+-\n"
+			end
 		end
 		state
 	end
 
-	def player_move
-		@move
+	def determine_winner
+		@winner = nil
+
+		# horizontal
+		for y in 0..2
+			test = ""
+			for x in 0..2
+				test += @board[coords_to_sym(x, y)].to_s
+			end
+			determine_if_winner test
+		end
+
+		# vertical
+		for x in 0..2
+			test = ""
+			for y in 0..2
+				test += @board[coords_to_sym(x, y)].to_s
+			end
+			determine_if_winner test
+		end
+
+		# diagonal left-top to bottom
+		test = ""
+		for i in 0..2
+			test += @board[coords_to_sym(i, i)].to_s
+		end
+		determine_if_winner test
+
+		# diagonal right-top to bottom
+		test = ""
+		for i in 0..2
+			test += @board[coords_to_sym(2 - i, i)].to_s
+		end
+		determine_if_winner test
+
+		if @winner == nil && !spots_open?
+			@winner = :draw
+		end
 	end
 
-	def determine_winner
+	def determine_if_winner test
+		if test == "XXX"
+			if @player_symbol == :X
+				@winner = :player
+			else
+				@winner = :computer
+			end
+		elsif test == "OOO"
+			if @player_symbol == :O
+				@winner = :player
+			else
+				@winner = :computer
+			end
+		end
 	end
 
 	def player_won?
+		@winner == :player
+	end
+
+	def over?
+		@winner != nil
+	end
+
+	def draw?
+		@winner == :draw
 	end
 
 	def spots_open?
-		@board.length < 9
+		for y in 0..2
+			for x in 0..2
+				coords = coords_to_sym x, y
+				if @board[coords] == " " 
+					return true
+				end
+			end
+		end
+		false
 	end
 end
