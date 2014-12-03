@@ -7,7 +7,7 @@ class TicTacToe
 
 	SYMBOLS = [ :X, :O ]
 
-	def initialize who_starts = nil, with_symbol = :X
+	def initialize who_starts = nil, other_players_symbol = :X
 		if who_starts == nil
 			if Random.new.rand(0..1) == 1
 				@turn = :player
@@ -18,11 +18,11 @@ class TicTacToe
 			@turn = who_starts
 		end
 		if @turn == :player
-			@computer_symbol = with_symbol
-			@player_symbol = opposite_symbol with_symbol
+			@computer_symbol = other_players_symbol
+			@player_symbol = opposite_symbol_of other_players_symbol
 		else
-			@player_symbol = with_symbol
-			@computer_symbol = opposite_symbol with_symbol				
+			@player_symbol = other_players_symbol
+			@computer_symbol = opposite_symbol_of other_players_symbol				
 		end
 
 		@board = {}
@@ -34,7 +34,7 @@ class TicTacToe
 		end
 	end
 
-	def opposite_symbol symbol
+	def opposite_symbol_of symbol
 		i = SYMBOLS.index symbol
 		if i != nil
 			SYMBOLS[1 - i]
@@ -58,22 +58,20 @@ class TicTacToe
 	end
 
 	def get_player_move
+		move = nil
 		loop do
-			move = gets
-			@move = move.chomp.to_sym
-			break if @board.has_key?(@move) && @board[@move] == " "
+			move = gets.chomp.to_sym
+			break if @board.has_key?(move) && @board[move] == " "
 			print "Invalid move, try again:"
 		end
-		@board[@move] = @player_symbol
-		# sometimes board doesn't get set!!
-		#puts "**** #{@board.inspect}"
+		@board[move] = @player_symbol
 		@turn = :computer
-		@move
+		move
 	end
 
 	def player_move
-		move = get_player_move
-		move.to_sym # get_player_move should always return a symbol but seems to sometimes return a string!!!
+		move = self.get_player_move
+		move.to_sym
 	end
 
 	def computer_move
@@ -111,20 +109,20 @@ class TicTacToe
 	def current_state
 		state = "  1 2 3\n"
 		for y in 0..2
-			state += "#{('A'..'C').to_a[y]} "
+			state << "#{('A'..'C').to_a[y]} "
 			for x in 0..2
 				coords = coords_to_sym x, y
-				state += @board[coords].to_s
-				state += '|'
+				state << @board[coords].to_s
+				if x < 2
+					state << '|'
+				end
 			end
-			state.chop!
-			state += "\n"
+			state << "\n"
 			if y < 2
-				state += "  -+-+-\n"
+				state << "  -+-+-\n"
 			end
 		end
-		state += "\n"
-		state
+		state << "\n"
 	end
 
 	def determine_winner
@@ -132,49 +130,49 @@ class TicTacToe
 
 		# horizontal
 		for y in 0..2
-			test = ""
+			row = ""
 			for x in 0..2
-				test += @board[coords_to_sym(x, y)].to_s
+				row << @board[coords_to_sym(x, y)].to_s
 			end
-			determine_if_winner test
+			determine_if_winner row
 		end
 
 		# vertical
 		for x in 0..2
-			test = ""
+			row = ""
 			for y in 0..2
-				test += @board[coords_to_sym(x, y)].to_s
+				row << @board[coords_to_sym(x, y)].to_s
 			end
-			determine_if_winner test
+			determine_if_winner row
 		end
 
 		# diagonal left-top to bottom
-		test = ""
+		row = ""
 		for i in 0..2
-			test += @board[coords_to_sym(i, i)].to_s
+			row << @board[coords_to_sym(i, i)].to_s
 		end
-		determine_if_winner test
+		determine_if_winner row
 
 		# diagonal right-top to bottom
-		test = ""
+		row = ""
 		for i in 0..2
-			test += @board[coords_to_sym(2 - i, i)].to_s
+			row << @board[coords_to_sym(2 - i, i)].to_s
 		end
-		determine_if_winner test
+		determine_if_winner row
 
 		if @winner == nil && !spots_open?
 			@winner = :draw
 		end
 	end
 
-	def determine_if_winner test
-		if test == "XXX"
+	def determine_if_winner row
+		if row == "XXX"
 			if @player_symbol == :X
 				@winner = :player
 			else
 				@winner = :computer
 			end
-		elsif test == "OOO"
+		elsif row == "OOO"
 			if @player_symbol == :O
 				@winner = :player
 			else
