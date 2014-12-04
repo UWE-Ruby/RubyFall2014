@@ -31,4 +31,15 @@ class TicTacToe
 						       [:A1, :B2, :C3],	
 						       [:A3, :B2, :C1] ]		
 	end
+
+	def welcome_player
+		"Welcome #{@player}"
+	end
+
 end
+
+
+
+
+
+
