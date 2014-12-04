@@ -69,7 +69,61 @@ class TicTacToe
 		board[move] = @computer_symbol
 		@current_player_identity = @player
 		open_spots.shuffle.sample
-	end	
+	end
+
+	def current_state
+		@board.map {|x,y| y.to_s}
+	end
+
+	def indicate_player_turn
+		current_player == :computer
+	end
+		
+  	def spots_open?
+    	
+  	end
+
+	def player_won?
+		winning_condition @player_symbol
+	end
+
+	def winning_condition(s)
+		return true if
+			@board[:A1] == s && @board[:A2] == s \
+				&& @board[:A3] == s or
+		   	@board[:B1] == s && @board[:B2] == s \
+			   	&& @board[:B3] == s or
+			@board[:C1] == s && @board[:C2] == s \
+			   	&& @board[:C3] == s or
+			@board[:A1] == s && @board[:B1] == s \
+			   	&& @board[:C1] == s or 
+			@board[:A2] == s && @board[:B2] == s \
+			   	&& @board[:C2] == s or
+			@board[:A3] == s && @board[:B3] == s \
+			   	&& @board[:C3] == s or
+			@board[:A1] == s && @board[:B2] == s \
+			   	&& @board[:C3] == s or
+			@board[:A3] == s && @board[:B2] == s \
+			   	&& @board[:C1] == s 
+	end
+ 
+	def determine_winner
+		if winning_condition(@player_symbol)
+			@player_won = true
+		elsif winning_condition(@computer_symbol)
+			@computer_won = true
+		else
+			@draw = true
+		end
+    end        	
+
+	def draw?
+		return true 
+	end
+	 
+	def over?
+		return true  
+	end	 
 end
 
 
