@@ -36,6 +36,40 @@ class TicTacToe
 		"Welcome #{@player}"
 	end
 
+	def current_player(x = 0)
+		@current_player_identity = case x 
+		when 
+			:computer 
+			"Computer"
+		else
+			@current_player_identity === "Computer" ? "Computer" : @player
+	 	end
+	end
+
+	def open_spots
+		open_spots = []
+		@board.map {|x,y| open_spots << x if @board[x] == " "}
+		open_spots
+	end
+
+	def player_move
+		begin
+			move = get_player_move
+		end until board[move.to_sym] == " " 
+			board[move.to_sym] = @player_symbol
+			move.to_sym	
+		end
+	 
+	def get_player_move
+		move = gets
+	end
+	 
+	def computer_move
+		move = open_spots.shuffle.sample
+		board[move] = @computer_symbol
+		@current_player_identity = @player
+		open_spots.shuffle.sample
+	end	
 end
 
 
