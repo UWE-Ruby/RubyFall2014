@@ -1,4 +1,5 @@
 require_relative 'couch.rb'
+require_relative '../../spec_helper'
 
 describe Couch do
   before :each do
