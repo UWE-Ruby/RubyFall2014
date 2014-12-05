@@ -1,5 +1,5 @@
 require_relative 'couch.rb'
-
+require_relative '../../spec_helper.rb'
 describe Couch do
   before :each do
     @couch = Couch.new [:red, :red, :black, :black], [:grey, :grey], ['Bradley', 'Sticks']
