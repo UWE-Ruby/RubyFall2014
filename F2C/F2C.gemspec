@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.date          = '2014-11-23'
   s.authors       = ["Kenny Lu"]
   s.email         = ["lukenny@gmail.com"]
-  s.description   = "Ruby class project - F2C converts Fahrenheit to Celsius and vice versa"
+  s.description   = "Ruby class project - F2C is a simple tool that converts Fahrenheit to Celsius and vice versa"
   s.summary       = "Ruby class project - Fahrenheit to Celsius conversion and vice versa"
   s.homepage      = 'http://rubygems.org/gems/F2C'
   s.licenses      = 'MIT'
