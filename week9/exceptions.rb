@@ -9,7 +9,7 @@ end
 
 def hello
   begin
-    raise ReneeError.new
+    raise ReneeError.new("override error message")
     puts yield
   rescue LocalJumpError => e
     puts e
