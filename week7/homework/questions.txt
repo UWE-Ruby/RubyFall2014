@@ -3,6 +3,7 @@ Please Read Chapters 23 and 24 DuckTyping and MetaProgramming
 
 Questions:
 1. What is method_missing and how can it be used?
+<<<<<<< HEAD
 
 When you invoke a method, Ruby looks for the method on the class associated with either the receiver object or "self" if there is not an explicit receiver.  If it does not find the method, it looks for the method on the class's superclass, and on up the inheritance chain until it reaches BasicObject.  If the method is not found, Ruby returns to the first class it looked at (the class for the receiver), and starts up the chain again, looking for a method called "method_missing".  If a method_missing method has not been defined, Ruby will eventually find the built-in method_missing method in the BasicObject class.
 
@@ -25,3 +26,9 @@ Class methods are singleton methods as they are defined for a single object of a
 5. What is the difference between a singleton class and a singleton method?
 
 A singleton method is a method defined on a single object, which Ruby manages by creating a singleton class to define the method within, and then inserting the singleton class in the inheritance chain as the parent of the original object.
+=======
+2. What is and Eigenclass and what is it used for? Where Do Singleton methods live?
+3. When would you use DuckTypeing? How would you use it to improve your code?
+4. What is the difference between a class method and an instance method? What is the difference between instance_eval and class_eval?
+5. What is the difference between a singleton class and a singleton method?
+>>>>>>> c8064362e7a7dd3b25dc545393e6397f208cdcfa
