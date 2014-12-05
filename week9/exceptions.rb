@@ -21,9 +21,9 @@ def hello
   end
 
 
-  catch :renee_error do
+  catch :thing do
     puts "before throw"
-    throw :renee_error
+    throw :thing
     puts "after throw"
   end
 

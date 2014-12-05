@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'thin'
+require 'pry'
 
 get '/hello' do
   hello do |time|

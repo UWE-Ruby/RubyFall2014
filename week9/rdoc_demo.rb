@@ -17,6 +17,13 @@ class Hat < HeadGear
   def initialize color, size
     @color = color
     @size = size
+    if false
+      @thingy = "whatever"
+    end
+  end
+
+  def not_tested
+    puts "hello"
   end
 
 
