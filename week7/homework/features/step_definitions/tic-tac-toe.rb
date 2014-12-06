@@ -47,21 +47,20 @@ class TicTacToe
       move = gets.chomp.to_sym
       end
     @board[move] = @player_symbol
-    @open_spots -= [move]
     @current_player = "Computer"
     return move
   end
   
   def computer_move
+    update_open_spots
     move = @open_spots[rand(@open_spots.length)]
     @board[move] = @computer_symbol
-    @open_spots -= [move]
     @current_player = @player
     return move
   end
   
   def current_state
-    return @board[:A1].to_s + " | " + @board[:A2].to_s + " | " + @board[:A3].to_s + "\n" + @board[:B1].to_s + " | " + @board[:B2].to_s + " | " + @board[:B3].to_s + "\n" + @board[:C1].to_s + " | " + @board[:C2].to_s + " | " + @board[:C3].to_s 
+    return @board[:A1].to_s + " | " + @board[:A2].to_s + " | " + @board[:A3].to_s + "\n---------\n" + @board[:B1].to_s + " | " + @board[:B2].to_s + " | " + @board[:B3].to_s + "\n---------\n" + @board[:C1].to_s + " | " + @board[:C2].to_s + " | " + @board[:C3].to_s 
   end
   
   def determine_winner
@@ -90,6 +89,16 @@ class TicTacToe
   
   def spots_open?
     board.value? " "
+  end
+  
+  def update_open_spots
+    @open_spots = []
+    @board.select do |k,v|
+      if v == " "
+        @open_spots << k
+      end
+    end
+    return @open_spots
   end
   
   def draw?
