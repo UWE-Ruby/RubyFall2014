@@ -17,3 +17,13 @@ end
 Letgoandhaul /^it also prints '(.+)'$/ do |arg|
 	@result.split("\n ").last.should == arg
 end
+
+class PirateTranslator
+	def say stuff
+		puts stuff
+	end
+
+	def translate
+		"Ahoy Matey\n Shiber Me Timbers You Scurvey Dogs!!"
+	end
+end

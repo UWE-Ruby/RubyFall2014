@@ -4,12 +4,36 @@ p.86-90 Strings (Strings section in Chapter 6 Standard Types)
 
 1. What is an object?
 
+An object is an instantiated grouping of functionality and storage.
+
+
+
 2. What is a variable?
+
+A variable is a reference to an object.
+
+
 
 3. What is the difference between an object and a class?
 
+A class is the description of an object, while an object is the physical instance of a class.
+
+
+
 4. What is a String?
+
+String is a class describing the functionality and storage of a sequence of 8-bit bytes.
+
+
 
 5. What are three messages that I can send to a string object? Hint: think methods
 
+String objects can take .squeeze, .scan, and .chomp.
+
+
+
 6. What are two ways of defining a String literal? Bonus: What is the difference between them?
+
+A String literal can be defined by using a pair of single quotes or a pair of double quotes. Ruby being Ruby, there are ways to use alternate delimiters as either single or double quotes. Ruby being Ruby, there is also a third way to define a String literal, the "here document" syntax.
+
+With the single quote option, only the escape sequences for the backslash and single quote will be processed; all other escape sequences will be treated as separate characters. With the double quote option, all escape sequences will be treated as escape sequences. Double-quoted strings will also parse the #{} syntax.

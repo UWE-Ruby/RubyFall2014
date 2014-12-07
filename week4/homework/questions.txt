@@ -2,12 +2,34 @@ Please Read:
 Chapter 10 Basic Input and Output
 The Rake Gem: http://rake.rubyforge.org/
 
+PLEASE NOTE: In the assigned text book, chapter 10 is "Exceptions, catch and throw." The chapter "Basic Input and Output" is chapter 11. I was unable to connect to RubyForge.org; the site's Wikipedia article (https://en.wikipedia.org/wiki/RubyForge) noted that the site was shut down in May, 2014.
+
+
 1. How does Ruby read files?
+
+Ruby reads files using the File class, which is a descendant of the IO class.
+
 
 2. How would you output "Hello World!" to a file called my_output.txt?
 
+# Using this syntax, the file closes automatically
+# when the loop goes out of scope.
+
+File.open("my_output.txt", "w") do |f|
+    f.puts("Hello, World!")
+end
+
+
 3. What is the Directory class and what is it used for?
+
+I wasn't able to find anything about a Directory class.
+
 
 4. What is an IO object?
 
+An instance of the IO class. As such, it contains a bidirectional channel that allows a Ruby application to communicate with an external resource, such as a keyboard, monitor, or file.
+
+
 5. What is rake and what is it used for? What is a rake task?
+
+I was unable to reach the text.
