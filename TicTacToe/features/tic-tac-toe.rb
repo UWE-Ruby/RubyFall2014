@@ -1,6 +1,6 @@
 class TicTacToe
 
-	attr_accessor :player, :computer, :player_symbol, :computer_symbol, :current_player, :get_player_move
+    attr_accessor :player, :computer, :player_symbol, :computer_symbol, :current_player, :get_player_move
 	
 	SYMBOLS = [:X, :O]
 	
@@ -30,7 +30,7 @@ class TicTacToe
 				end
 			else
 				players[0] == :computer
-				@current_player = computer #"Computer"
+				@current_player = "Computer"
 					if players[1] == SYMBOLS[0]
 						@computer_symbol = SYMBOLS[0]
 						@player_symbol = SYMBOLS[1]
@@ -42,9 +42,11 @@ class TicTacToe
 		else
 			#randomly choose first player
 			if rand(2) == 1
-				@current_player = "player" #@player 
+				@current_player = "player"
+                @computer = "Computer"
 			else
-				@current_player = computer #"Computer"
+				@current_player = "Computer"
+                @player = "player"
 			end
 
 			#randomly assign who is X and who is O
@@ -67,9 +69,9 @@ class TicTacToe
 	def board
 		#initialize a blank 3x3 board
 		@board = {
-			A1: " ", A2: " ", A3: " ", 
-			B1: " ", B2: " ", B3: " ", 
-			C1: " ", C2: " ", C3: " "
+			:A1 => " ", :A2 => " ", :A3 => " ", 
+			:B1 =>" ", :B2 => " ", :B3 => " ", 
+			:C1 => " ", :C2 => " ", :C3 => " "
 			}
 	end
 	
@@ -84,12 +86,10 @@ class TicTacToe
 	
 	def computer
 		@computer = "Computer"
-		@computer
 	end
 	
 	def player= name
 		@player = name #:player
-		@player
 	end
 	
 	def welcome_player
@@ -113,6 +113,8 @@ class TicTacToe
 	def current_player
 		if @current_player == "player"
 			@current_player = @player 
+		else
+			@current_player = "Computer"
 		end
 	end
 	
@@ -130,18 +132,30 @@ class TicTacToe
 		move = get_player_move.to_sym
 		
 		#test if spot is open
-		if @board[move] == " "
-			#update board with player's symbol
-			@board[move] = @player_symbol
-			#return the move
-			move
-		else
+		#keep asking for a new move until have an open spot
+		until (@board[move] == " ")
 			puts "Sorry, that spot is already taken. Please enter another move"
-			move = get_player_move
-			player_move
+			#ask for another move
+			indicate_player_turn
+			get_player_move
 		end
-		#update_open_spots
+		
+		# if @board[move] == " "
+			# #update board with player's symbol
+			# @board[move] = @player_symbol
+			# #return the move
+			# move
+		# else
+			# puts "Sorry, that spot is already taken. Please enter another move"
+			# move = get_player_move
+			# player_move
+		# end
+		
+		#update board with player symbol
+		@board[move] = @player_symbol
 		update_open_spots
+		#set up next turn for Computer
+		@current_player = "Computer"
 		move
 	end
 	
@@ -151,10 +165,6 @@ class TicTacToe
 		#update board
 		board[comp_move] = @computer_symbol
 		@current_player = @computer
-		
-		#update_open_spots
-		#open_spots.shuffle.sample
-		#update board
 	end
 	
 	def update_open_spots
@@ -189,10 +199,12 @@ class TicTacToe
 	#Answer set tests
 	def answer_sets
 		#split the board into :X and :O sets
-		x_spaces = @board.select {|k,v| v == :X}
-		o_spaces = @board.select {|k,v| v == :O}
-		
+		#x_spaces = @board.map {|k,v| k if v == :X}
+		#o_spaces = @board.map {|k,v| k if v == :O}
 		#check if the :X or :O spaces match any of the winning_combination
+		
+		# spell out every combo and compare board to it
+		row_a = 
 
 	end
 
