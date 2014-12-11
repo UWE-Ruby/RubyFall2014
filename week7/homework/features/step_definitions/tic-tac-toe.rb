@@ -1,6 +1,6 @@
 class TicTacToe
 	attr_accessor :player, 
-				  :player_symbol, 
+				 :player_symbol, 
 			      :computer_symbol, 
 				  :board 
 					  
