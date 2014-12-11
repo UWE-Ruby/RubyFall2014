@@ -7,7 +7,8 @@ describe SimonSays do
 
   # Hint: We are just calling methods, we are not passing a message to a SimonSays object.
   it "should echo hello" do
-    echo("hello").should == "hello"
+    ret_val = echo "hello"
+    ret_val.should == "hello"
   end
 
   it "should echo bye" do

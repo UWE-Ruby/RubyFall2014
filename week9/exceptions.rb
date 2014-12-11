@@ -9,7 +9,7 @@ end
 
 def hello
   begin
-    raise ReneeError.new
+    raise ReneeError.new("override error message")
     puts yield
   rescue LocalJumpError => e
     puts e
@@ -21,9 +21,9 @@ def hello
   end
 
 
-  catch :renee_error do
+  catch :thing do
     puts "before throw"
-    throw :renee_error
+    throw :thing
     puts "after throw"
   end
 
