@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Masterdlymind
 
 TODO: Write a gem description
@@ -102,3 +103,9 @@ Gem Project Requirements
 * Ready to demo the last day of class
 
 >>>>>>> 680ed0a642105706e0b3b06294d3596ccbe441fd
+=======
+masterdlymind
+=============
+
+Play a game of Mastermind
+>>>>>>> 0773086cf703f1c4c97ebb9017a2eb09bade7eda
