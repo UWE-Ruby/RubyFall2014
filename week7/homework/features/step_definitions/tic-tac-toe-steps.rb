@@ -21,7 +21,7 @@ Then /^randomly chooses who goes first$/ do
 end
 
 Then /^who is X and who is O$/ do
-  #TicTacToe::SYMBOLS.should include @game.player_symbol, @game.computer_symbol
+  ##TicTacToe::SYMBOLS.should include @game.player_symbol, @game.computer_symbol
   expect(TicTacToe::SYMBOLS).to include @game.player_symbol, @game.computer_symbol
 end
 
