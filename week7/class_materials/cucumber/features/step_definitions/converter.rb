@@ -9,10 +9,14 @@ class Converter
 	end
 
 	def convert
-		self.send("#{@type}_convertion")
+		self.send("#{@type}_conversion")
 	end
 
-	def Celsius_convertion
+	def Celsius_conversion
 	    (@unit *  (9.0/5.0) + 32.0).round(1)	
+	end
+	
+	def Fahrenheit_conversion
+		((@unit - 32) * (5/9)).round(1)
 	end
 end

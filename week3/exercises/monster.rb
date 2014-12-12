@@ -11,4 +11,8 @@ class Monster
 		@dangers = dangers
 		@legs = legs
 	end
+	
+	def attack human
+		"#{self.name} attacked #{human.name}"
+	end
 end	
