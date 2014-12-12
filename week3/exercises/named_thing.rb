@@ -9,6 +9,7 @@ module NamedThing
 		"My name is #{@name}"
 	end
 
+private
 	def shout_name
 		@name.upcase
 	end

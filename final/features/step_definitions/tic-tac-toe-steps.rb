@@ -41,66 +41,79 @@ Given /^the computer knows my name is Renee$/ do
 end
 
 Then /^the computer prints "(.*?)"$/ do |arg1|
-  @game.should_receive(:puts).with(arg1)
-  #expect(@game.should_receive(:puts).with(arg1)
+  #@game.should_receive(:puts).with(arg1)
+  expect(@game).to receive(:puts).with(arg1)
   @game.indicate_player_turn
 end
 
 Then /^waits for my input of "(.*?)"$/ do |arg1|
-  @game.should_receive(:gets).and_return(arg1)
-  @game.get_player_move
+  #@game.should_receive(:gets).and_return(arg1)
+  expect(@game).to receive(:gets).with(arg1)
+  #@game.get_player_move
 end
 
-Given /^it is the computers turn$/ do
-  @game = TicTacToe.new(:computer, :O)
-  @game.current_player.should eq "Computer"
+Given /^it is the computer's turn$/ do #'
+  @game = TicTacToe.new(:computer, :X)
+  #@game.current_player.should eq "Computer" 
+  expect(@game.current_player).to eq "Computer"
 end
 
 Then /^the computer randomly chooses an open position for its move$/ do
   open_spots = @game.open_spots
   @com_move = @game.computer_move
-  open_spots.should include(@com_move)
+  #open_spots.should include(@com_move)
+  expect(open_spots).to include(@com_move)
 end
 
 Given /^the computer is playing X$/ do
-  @game.computer_symbol.should eq :X
+  #@game.computer_symbol.should eq :X
+  expect(@game.computer_symbol).to eq :X
 end
 
 Then /^the board should have an X on it$/ do
-  @game.current_state.should include 'X'
+  #@game.current_state.should include 'X'
+  expect(@game.current_state).to include 'X'
+
 end
 
 Given /^I am playing X$/ do
-  @game = TicTacToe.new(:computer, :X)
-  @game.player_symbol.should eq :X
+  @game = TicTacToe.new(:player, :X)
+  #@game.player_symbol.should eq :X
+  expect(@game.player_symbol).to eq :X
 end
 
 When /^I enter a position "(.*?)" on the board$/ do |arg1|
   @old_pos = @game.board[arg1.to_sym]
-  @game.should_receive(:get_player_move).and_return(arg1)
-  @game.player_move.should eq arg1.to_sym
+  #@game.should_receive(:get_player_move).and_return(arg1)
+  expect(@game).to receive(:get_player_move).and_return(arg1)
+  #@game.player_move.should eq arg1.to_sym
+  expect(@game.player_move).to eq arg1.to_sym
 end
 
 When /^"(.*?)" is not taken$/ do |arg1|
-  @old_pos.should eq " "
+  #@old_pos.should eq " "
+  expect(@old_pos).to eq ""
 end
 
-Then /^it is now the computer's turn$/ do
-  @game.current_player.should eq "Computer"
+Then /^it is now the computer's turn$/ do #'
+  #@game.current_player.should eq "Computer"
+  expect(@game.current_player).to eq "Computer"
 end
 
-When /^there are three X's in a row$/ do
-  @game = TicTacToe.new(:computer, :X)
+When /^there are three X's in a row$/ do #'
+  @game = TicTacToe.new(:player, :X)
   @game.board[:C1] = @game.board[:B2] = @game.board[:A3] = :X
 end
 
 Then /^I am declared the winner$/ do
   @game.determine_winner
-  @game.player_won?.should be_true
+  #@game.player_won?.should be_true
+  expect(@game.player_won?).to be true
 end
 
 Then /^the game ends$/ do
-  @game.over?.should be_true
+  #@game.over?.should be_true
+  expect(@game.over?).to be true
 end
 
 Given /^there are not three symbols in a row$/ do
@@ -113,11 +126,13 @@ Given /^there are not three symbols in a row$/ do
 end
 
 When /^there are no open spaces left on the board$/ do
-  @game.spots_open?.should be_false
+  #@game.spots_open?.should be_false
+  expect(@game.spots_open?).to be false
 end
 
 Then /^the game is declared a draw$/ do
-  @game.draw?.should be_true
+  #@game.draw?.should be_true
+  expect(@game.draw?).to be true
 end
 
 When /^"(.*?)" is taken$/ do |arg1|
@@ -126,7 +141,9 @@ When /^"(.*?)" is taken$/ do |arg1|
 end
 
 Then /^computer should ask me for another position "(.*?)"$/ do |arg1|
-  @game.board[arg1.to_sym] = ' '
-  @game.should_receive(:get_player_move).twice.and_return(@taken_spot, arg1)
-  @game.player_move.should eq arg1.to_sym
+  @game.board[arg1.to_sym] = ''
+  #@game.should_receive(:get_player_move).twice.and_return(@taken_spot, arg1)
+  expect(@game).to receive(:get_player_move).twice.and_return(@taken_spot, arg1)
+  #@game.player_move.should eq arg1.to_sym
+  expect(@game.player_move).to eq arg1.to_sym
 end

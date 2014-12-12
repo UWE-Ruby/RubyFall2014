@@ -1,13 +1,54 @@
+
+Joseph J. Simpson
 Please Read:
-Chapter 10 Basic Input and Output
-The Rake Gem: http://rake.rubyforge.org/
+Chapter 11 Basic Input and Output
+The Rake Gem: http://rake.rubyforge.org/ (no go ) 
+(used ) https://rubygems.org/gems/rake
 
 1. How does Ruby read files?
+Ruby has an IO Object to handle input and output.
+The File Object is a subclass of IO that specializes in File input and output.
+Ruby reads files using the methods associated with the File class.
 
 2. How would you output "Hello World!" to a file called my_output.txt?
 
+file_name = “my_output.txt”
+out_file = File.open(file_name, “w”)
+out_file.puts “Hello World!”
+out_file.close
+
+
 3. What is the Directory class and what is it used for?
 
+The Directory class in Ruby are objects that represent the directories in host operating file system.  Directory class objects have numerous methods that manipulate directories and their contents.
+
 4. What is an IO object?
+A Ruby IO object is created from the IO class which is the basis for all inout and output in Ruby.  An IO object is used to support Ruby IO methods and operations.
+
 
 5. What is rake and what is it used for? What is a rake task?
+
+Ruby rake is a software task management tool. Rake supports the specification of tasks and 
+their associated dependices as well as the grouping of tasks in a namespace.  
+
+A Rake task is the basic unit of work or processing in a Rakefile.
+
+
+Instructor answers:
+Please Read: 
+Chapter 10 Basic Input and Output
+The Rake Gem: http://docs.seattlerb.org/rake/
+
+1. How does Ruby read files?
+   Ruby reads files using the built in File class, which is a sub-class of the IO class for managing external streams.
+2. How would you output "Hello World!" to a file called my_output.txt?
+   File.open('my_output.txt', 'w') do |f|
+       f.puts "Hello World!"
+   end
+3. What is the Directory class and what is it used for?
+   The Dir class is the built-in Ruby class for understanding and managing file system directories.
+4. What is an IO object?
+   An instance of the IO class is used for streaming input and output data in Ruby. It is the basis for all input and output, like reading and writing to a File.
+5. What is rake and what is it used for? What is a rake task?
+   Rake is Ruby-Make, it is a DSL for task management and used for ordering Ruby code into tasks. A rake task is a grouping of Ruby code to be run with the rake command, and potentially an ordered listing of any dependent tasks.
+
