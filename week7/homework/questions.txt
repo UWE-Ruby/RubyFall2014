@@ -3,7 +3,32 @@ Please Read Chapters 23 and 24 DuckTyping and MetaProgramming
 
 Questions:
 1. What is method_missing and how can it be used?
+<<<<<<< HEAD
+
+When you invoke a method, Ruby looks for the method on the class associated with either the receiver object or "self" if there is not an explicit receiver.  If it does not find the method, it looks for the method on the class's superclass, and on up the inheritance chain until it reaches BasicObject.  If the method is not found, Ruby returns to the first class it looked at (the class for the receiver), and starts up the chain again, looking for a method called "method_missing".  If a method_missing method has not been defined, Ruby will eventually find the built-in method_missing method in the BasicObject class.
+
+Method_missing is just a regular Ruby method, and so can be defined or overridden.  It can be used to create methods dynamically.  An example of this are the "find_by_xxx" methods in Rails ActiveRecord, that can be used to find records using one of the record columns as a filter.  These methods are not all defined in code for a given Rails model - they are generated dynamically using method_missing.
+
+2. What is and Eigenclass and what is it used for? Where Do Singleton methods live?
+
+Ruby allows methods to be defined for a single object - these are called singleton methods.  When they are defined, these singleton methods are managed by Ruby as follows: (1) A new anonymous class is created, in which the singleton method is defined.  (2) This new class is set to be the parent class of the object for which the singleton method was defined by the programmer, and the original parent class is set to be the parent of the new anonymous method.  This preserves the consistency in which Ruby deals with methods, whereby when a method is called on an object, Ruby looks to that object's class for the definition of the method.
+
+The new, anonymous class that Ruby defines is called an eigenclass or singleton class.
+
+3. When would you use DuckTypeing? How would you use it to improve your code?
+
+Duck typing can allow you to write more flexible code.  For example, rather than checking the type of parameters passed to a method, you can focus your method on the behavior you expect the parameter to display.  This makes the resulting method more flexible - any object that displays the needed behavior can be passed as a parameter successfully.  Additionally, the code will be simpler, as checking the type of entities is not emphasized.
+
+4. What is the difference between a class method and an instance method? What is the difference between instance_eval and class_eval?
+
+Class methods are singleton methods as they are defined for a single object of a class, where instance methods are defined for all instances of a class.  That being said, there is no technical difference between instance methods and class methods - Ruby's treatment of methods is consistent, via its use of singleton classes.
+
+5. What is the difference between a singleton class and a singleton method?
+
+A singleton method is a method defined on a single object, which Ruby manages by creating a singleton class to define the method within, and then inserting the singleton class in the inheritance chain as the parent of the original object.
+=======
 2. What is and Eigenclass and what is it used for? Where Do Singleton methods live?
 3. When would you use DuckTypeing? How would you use it to improve your code?
 4. What is the difference between a class method and an instance method? What is the difference between instance_eval and class_eval?
 5. What is the difference between a singleton class and a singleton method?
+>>>>>>> c8064362e7a7dd3b25dc545393e6397f208cdcfa
