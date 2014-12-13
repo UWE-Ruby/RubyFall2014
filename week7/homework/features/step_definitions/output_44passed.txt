@@ -1,0 +1,73 @@
+$ cucumber
+# language: en-pirate
+Ahoy matey!: Pirate Speak
+      I would like help to talk like a pirate
+
+  Heave to: The mighty speaking pirate                           # features/pirate.feature:6
+    Gangway! I have a PirateTranslator                           # features/step_definitions/pirate_steps.rb:3
+    Blimey! I say 'Hello Friend'                                 # features/step_definitions/pirate_steps.rb:7
+    Aye I hit translate                                          # features/step_definitions/pirate_steps.rb:11
+    Let go and haul it prints out 'Ahoy Matey'                   # features/step_definitions/pirate_steps.rb:15
+    Avast! it also prints 'Shiber Me Timbers You Scurvey Dogs!!' # features/step_definitions/pirate_steps.rb:19
+
+Feature: Tic-Tac-Toe Game
+  As a game player I like tic-tac-toe
+  In order to up my skills
+  I would like to play agaist the computer
+
+  Scenario: Begin Game                                             # features/tic-tac-toe.feature:6
+    Given I start a new Tic-Tac-Toe game                           # features/step_definitions/tic-tac-toe-steps.rb:5
+    When I enter my name Renee                                     # features/step_definitions/tic-tac-toe-steps.rb:9
+    Then the computer welcomes me to the game with "Welcome Renee" # features/step_definitions/tic-tac-toe-steps.rb:13
+    And randomly chooses who goes first                            # features/step_definitions/tic-tac-toe-steps.rb:18
+    And who is X and who is O                                      # features/step_definitions/tic-tac-toe-steps.rb:23
+
+  Scenario: My Turn                          # features/tic-tac-toe.feature:13
+    Given I have a started Tic-Tac-Toe game  # features/step_definitions/tic-tac-toe-steps.rb:28
+    And it is my turn                        # features/step_definitions/tic-tac-toe-steps.rb:33
+    And the computer knows my name is Renee  # features/step_definitions/tic-tac-toe-steps.rb:38
+    Then the computer prints "Renee's Move:" # features/step_definitions/tic-tac-toe-steps.rb:43
+    And waits for my input of "B2"           # features/step_definitions/tic-tac-toe-steps.rb:50
+
+  Scenario: Computer's Turn                                          # features/tic-tac-toe.feature:20
+    Given I have a started Tic-Tac-Toe game                          # features/step_definitions/tic-tac-toe-steps.rb:28
+    And it is the computer's turn                                    # features/step_definitions/tic-tac-toe-steps.rb:56
+    And the computer is playing X                                    # features/step_definitions/tic-tac-toe-steps.rb:69
+    Then the computer randomly chooses an open position for its move # features/step_definitions/tic-tac-toe-steps.rb:62
+    And the board should have an X on it                             # features/step_definitions/tic-tac-toe-steps.rb:74
+
+  Scenario: Making Moves                      # features/tic-tac-toe.feature:27
+    Given I have a started Tic-Tac-Toe game   # features/step_definitions/tic-tac-toe-steps.rb:28
+    And it is my turn                         # features/step_definitions/tic-tac-toe-steps.rb:33
+    And I am playing X                        # features/step_definitions/tic-tac-toe-steps.rb:79
+    When I enter a position "A1" on the board # features/step_definitions/tic-tac-toe-steps.rb:85
+    And "A1" is not taken                     # features/step_definitions/tic-tac-toe-steps.rb:93
+    Then the board should have an X on it     # features/step_definitions/tic-tac-toe-steps.rb:74
+    And it is now the computer's turn         # features/step_definitions/tic-tac-toe-steps.rb:98
+
+  Scenario: Making Bad Moves                              # features/tic-tac-toe.feature:36
+    Given I have a started Tic-Tac-Toe game               # features/step_definitions/tic-tac-toe-steps.rb:28
+    And it is my turn                                     # features/step_definitions/tic-tac-toe-steps.rb:33
+    And I am playing X                                    # features/step_definitions/tic-tac-toe-steps.rb:79
+    When I enter a position "A1" on the board             # features/step_definitions/tic-tac-toe-steps.rb:85
+    And "A1" is taken                                     # features/step_definitions/tic-tac-toe-steps.rb:138
+    Then computer should ask me for another position "B2" # features/step_definitions/tic-tac-toe-steps.rb:143
+    And it is now the computer's turn                     # features/step_definitions/tic-tac-toe-steps.rb:98
+
+  Scenario: Winning the Game                # features/tic-tac-toe.feature:45
+    Given I have a started Tic-Tac-Toe game # features/step_definitions/tic-tac-toe-steps.rb:28
+    And I am playing X                      # features/step_definitions/tic-tac-toe-steps.rb:79
+    When there are three X's in a row       # features/step_definitions/tic-tac-toe-steps.rb:103
+    Then I am declared the winner           # features/step_definitions/tic-tac-toe-steps.rb:108
+    And the game ends                       # features/step_definitions/tic-tac-toe-steps.rb:114
+
+  Scenario: Game is a draw                          # features/tic-tac-toe.feature:52
+    Given I have a started Tic-Tac-Toe game         # features/step_definitions/tic-tac-toe-steps.rb:28
+    And there are not three symbols in a row        # features/step_definitions/tic-tac-toe-steps.rb:119
+    When there are no open spaces left on the board # features/step_definitions/tic-tac-toe-steps.rb:128
+    Then the game is declared a draw                # features/step_definitions/tic-tac-toe-steps.rb:133
+    And the game ends                               # features/step_definitions/tic-tac-toe-steps.rb:114
+
+8 scenarios (8 passed)
+44 steps (44 passed)
+0m0.036s
