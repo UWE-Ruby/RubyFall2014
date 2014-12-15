@@ -1,5 +1,6 @@
 require 'rspec/mocks/standalone'
 require 'rspec/expectations'
+
 Given /^I start a new Tic\-Tac\-Toe game$/ do
   @game = TicTacToe.new
 end
@@ -35,7 +36,7 @@ end
 
 Then /^the computer prints "(.*?)"$/ do |arg1|
   @game.should_receive(:puts).with(arg1)
-  @game.indicate_palyer_turn
+  @game.indicate_player_turn
 end
 
 Then /^waits for my input of "(.*?)"$/ do |arg1|
@@ -43,7 +44,7 @@ Then /^waits for my input of "(.*?)"$/ do |arg1|
   @game.get_player_move
 end
 
-Given /^it is the computer's turn$/ do
+Given /^it is the computers turn$/ do
   @game = TicTacToe.new(:computer, :O)
   @game.current_player.should eq "Computer"
 end
@@ -77,22 +78,22 @@ When /^"(.*?)" is not taken$/ do |arg1|
   @old_pos.should eq " "
 end
 
-Then /^it is now the computer's turn$/ do
+Then /^it is now the computers turn$/ do
   @game.current_player.should eq "Computer"
 end
 
-When /^there are three X's in a row$/ do
+When /^there are three Xs in a row$/ do
   @game = TicTacToe.new(:computer, :X)
   @game.board[:C1] = @game.board[:B2] = @game.board[:A3] = :X
 end
 
 Then /^I am declared the winner$/ do
   @game.determine_winner
-  @game.player_won?.should be_true
+  @game.player_won?.should be_truthy
 end
 
 Then /^the game ends$/ do
-  @game.over?.should be_true
+  @game.over?.should be_truthy
 end
 
 Given /^there are not three symbols in a row$/ do
@@ -105,11 +106,11 @@ Given /^there are not three symbols in a row$/ do
 end
 
 When /^there are no open spaces left on the board$/ do
-  @game.spots_open?.should be_false
+  @game.spots_open?.should be_falsey
 end
 
 Then /^the game is declared a draw$/ do
-  @game.draw?.should be_true
+  @game.draw?.should be_truthy
 end
 
 When /^"(.*?)" is taken$/ do |arg1|

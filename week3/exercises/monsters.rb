@@ -35,3 +35,27 @@ $monsters << {
 	:vulnerabilities => ['CO2', 'ice', 'cold'],
 	:legs => 0
 }
+
+#how many monsters are nocturnal? 
+puts $monsters.collect{|m| m[:nocturnal]} 
+
+#waht name of monsters that are nocturnal 
+puts $monsters.select{|m| m[:nocturnal]}.map{|m| m[:name]}
+
+#how many legs do monsters have? 
+puts $monsters.map{|m| m[:legs]}.inject(:+) 
+
+#what are 2 most common dangers 
+
+dangers = $monsters.flat_map{|m| m[:dangers]}
+dangers.inject(Hash.new(0)) do |h, d| 
+	h[d] += 1 
+	h 
+end
+
+dangers.group_by{|i| i}
+
+
+#what are 2 most common vulnerabilities? 
+
+

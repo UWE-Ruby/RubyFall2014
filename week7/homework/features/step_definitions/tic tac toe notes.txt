@@ -1,0 +1,10 @@
+
+create o list
+create x list
+
+iterate through board hash if any values equal 0 add to o list
+same for x list
+
+iterate through list of winning combos, and see if o list contains them
+same for x list
+
