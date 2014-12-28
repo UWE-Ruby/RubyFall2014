@@ -11,16 +11,29 @@ class Couch
 		end
 	end
 
-  def pillow_colors
-    @pillows.map &:to_s
-  end
+  # def pillow_colors
+  #   @pillows.map &:to_s
+  # end
 
-  def cushions_colors
-    @cushions.map &:to_s
-  end
+  # def cushions_colors
+  #   @cushions.map &:to_s
+  # end
 
   def dog_names
     @dogs.map &:to_s
+  end
+
+  [:pillows, :cushions].each do |s|
+    n = ""
+    if s == :pillows
+      n = s.to_s.chomp('s')
+    else
+      n = s.to_s
+    end
+    define_method("#{n}_colors") do
+      instance_variable_get("@#{s}").map &:to_s
+    end
+
   end
 
 end
