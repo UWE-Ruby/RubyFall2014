@@ -4,10 +4,63 @@ The Rake Gem: http://rake.rubyforge.org/
 
 1. How does Ruby read files?
 
+There are two ways for Ruby to do I/O with files:
+
+a. built in methods in the Kernel module (e.g., gets,puts,open,readline, etc.)
+   which typically read/write from/to standard input/output, or
+
+b. IO::File (File is a subclass of the base class IO)
+
+
+Using the base IO class gives you more control of your I/O tasks (e.g.,
+opening a file and processing it byte by byte)
+
 2. How would you output "Hello World!" to a file called my_output.txt?
+
+File.open("./my_output.txt", "w") do |file|
+  file.puts "Hello World!"
+end
+
+# now verify by reading in the file and echoing to terminal
+puts File.read("./my_output.txt")
 
 3. What is the Directory class and what is it used for?
 
+The Directory class in Ruby creates objects that are streams representing
+directories in the underlying filesystem. They are used to list directories
+and their contents. 
+ 
 4. What is an IO object?
 
+IO objects are bidirectional channels between Ruby and some external resource, 
+typically either files or sockets.
+
 5. What is rake and what is it used for? What is a rake task?
+
+rake is used to manage Ruby software build tasks, much like make is used to
+do the same in C programming. The default target for rake is a file named
+Rakefile (vs. Makefile in C programming). However, rake can also be used
+as a general automation tool for a variety of tasks and operations.
+
+"Rake is a software task management tool. It allows you to specify tasks and 
+describe dependencies as well as to group tasks in a namespace."
+   -- from http://en.wikipedia.org/wiki/Rake_(software)
+
+For example, given this Rakefile:
+
+desc "Remove backup files"
+task :remove_backups do
+  files = Dir['*.bak']
+  rm(files, verbose: true) unless files.empty?
+end
+
+when rake is invoked with
+
+   rake remove_backups
+
+it will remove any and all files in the current directory with a .bak extension.
+
+
+A rake task is a method that defines a Rake task that can be executed from
+the command line (as in the above example). Note: a task name is a symbol.
+
