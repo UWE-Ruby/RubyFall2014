@@ -4,12 +4,29 @@ p.86-90 Strings (Strings section in Chapter 6 Standard Types)
 
 1. What is an object?
 
+    Everything in Ruby is an object.  Objects have an identity, a set of qualities (stored in instance variables), and can do things when their methods are invoked.
+
 2. What is a variable?
+
+    A variable is a reference to an object.
 
 3. What is the difference between an object and a class?
 
+    A class is like a category of object; all objects of a single class will have the same qualities (though with different values) and methods.
+
 4. What is a String?
+
+    The word "string" could refer to the String class in Ruby, or an instance of the String class.  The fact that it's capitalized here suggests it refers to the class?
 
 5. What are three messages that I can send to a string object? Hint: think methods
 
+    1. string.length returns the number of characters in the string.
+    2. string.squueze removes characters from the string where like characters are together.  Accepts a parameter to restrict the operation to certain characters.
+    3. string.strip removes leading and trailing whitespace.
+
 6. What are two ways of defining a String literal? Bonus: What is the difference between them?
+
+    1. You can use %q with a delimiter, for example %q!Hello World! results in Hello World
+    2. You can use %Q with a delimiter, for example %Q!Hello World! results in Hello World
+
+    The difference between %Q and %q - a string defined with %Q acts like a string defined with double quotes - escaped characters are interpreted, so for example if \n is included in the string defined this way, when you puts the string a newline will be inserted.  Conversely, if you include an escaped character like \n in a string defined with %q, when you puts that string you will actually see the escaped characters "\n" displayed in the string rather than getting a newline.
